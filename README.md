@@ -6,7 +6,7 @@
 - [Root Endpoint](#root-endpoint)
 - [Client](#client)
 - [Error](#error)
-- [การ Login ของ Software 3rd-Party](#การ-login-ของ-software-3rd-party)
+- [การ Login ของ Client](#การ-login-ของ-client)
 - [API ที่สามารถใช้งานได้](#API-ที่สามารถใช้งานได้)
     - [การเพิ่มพนักงานใหม่](#การเพิ่มพนักงานใหม่)
 
@@ -54,8 +54,8 @@
 | error_code | รหัสสำหรับแต่ละ Error ที่เกิดขึ้นในระบบ masterTime                                       |
 | error_args | ยังไม่ใช้งาน (ตอนนี้จะส่งกลับมาเป็น `NULL` เสมอ)                                         |
 
-## การ Login ของ Software 3rd-Party
-ก่อนที่ Software ของ 3rd-Party จะสามารถสื่อสารกับ masterTime ได้ จะต้อง login ก่อน
+## การ Login ของ Client
+ก่อนที่ Client จะสามารถสื่อสารกับ masterTime ได้ จะต้อง login ก่อน
 
 #### Endpoint
 
