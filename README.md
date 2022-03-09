@@ -4,6 +4,9 @@
 
 - [ข้อมูลเบื้องต้น](#ข้อมูลเบื้องต้น)
 - [Root Endpoint](#root-endpoint)
+- [Client](#client)
+- [Error](#error)
+- [การ Login ของ Software 3rd-Party](#การ-login-ของ-software-3rd-party)
 - [API ที่สามารถใช้งานได้](#API-ที่สามารถใช้งานได้)
     - [การเพิ่มพนักงานใหม่](#การเพิ่มพนักงานใหม่)
 
@@ -24,28 +27,6 @@
 - Client คือ Software ที่ต้องการเชื่อมต่อกับระบบ masterTime
 - ทาง developer ของ masterTime จะสร้าง Account ให้สำหรับ Software 3rd-Party ที่ต้องการเชื่อมต่อกับ masterTime
 - ผู้พัฒนา Software 3rd-Party จะได้รับ Client ID และ Client Secret เพื่อให้ Client ใช้ในการ Login
-
-## การ Login ของ Software 3rd-Party
-
-#### Endpoint
-
-`/auth/login/software3rdparty`
-
-#### Request Body
-
-```json
-{
-  "app_id": "string",
-  "secret": "string",
-  "login_type_id": 3,
-  "company_uuid": "string"
-}
-```
-
-__app_id__ : คือ Client ID ที่ masterTime กำหนดให้ <br>
-__secret__ : คือ Client Secret ที่ masterTime กำหนดให้ <br>
-__login_type_id__ : คือ ประเภทของการ Login ซึ่ง Software 3rd-Party ต้องส่งค่า `3` เสมอ <br>
-__company_uuid__ : คือ
 
 ## Error
 
@@ -72,6 +53,28 @@ __company_uuid__ : คือ
 | log_id     | Log ID ในระบบ masterTime สำหรับแต่ละ Request                                             |
 | error_code | รหัสสำหรับแต่ละ Error ที่เกิดขึ้นในระบบ masterTime                                       |
 | error_args | ยังไม่ใช้งาน (ตอนนี้จะส่งกลับมาเป็น `NULL` เสมอ)                                         |
+
+## การ Login ของ Software 3rd-Party
+
+#### Endpoint
+
+`/auth/login/software3rdparty`
+
+#### Request Body
+
+```json
+{
+  "app_id": "string",
+  "secret": "string",
+  "login_type_id": 3,
+  "company_uuid": "string"
+}
+```
+
+__app_id__ : คือ Client ID ที่ masterTime กำหนดให้ <br>
+__secret__ : คือ Client Secret ที่ masterTime กำหนดให้ <br>
+__login_type_id__ : คือ ประเภทของการ Login ซึ่ง Software 3rd-Party ต้องส่งค่า `3` เสมอ <br>
+__company_uuid__ : คือ
 
 ## API ที่สามารถใช้งานได้
 
