@@ -3,7 +3,7 @@
 ## หัวข้อ
 
 - [ข้อมูลเบื้องต้น](#ข้อมูลเบื้องต้น)
-- [Root endpoint](#root-endpoint)
+- [Root Endpoint](#root-endpoint)
 - [API ที่สามารถใช้งานได้](#API-ที่สามารถใช้งานได้)
     - [การเพิ่มพนักงานใหม่](#การเพิ่มพนักงานใหม่)
 
@@ -14,7 +14,7 @@
 - เราใช้ HTTP Response Code เพื่อบอกว่าการ request นั้น success หรือ error ตามความหมายของโค้ดนั้น ๆ
 - API ของ masterTime ยอมรับ `https` เท่านั้น
 
-## Root endpoint
+## Root Endpoint
 
 - สำหรับ `development` : `https://api-demo.mastertime.io/api/v1/`
 - สำหรับ `production` : `https://api.mastertime.io/api/v1/`
