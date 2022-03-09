@@ -55,6 +55,7 @@
 | error_args | ยังไม่ใช้งาน (ตอนนี้จะส่งกลับมาเป็น `NULL` เสมอ)                                         |
 
 ## การ Login ของ Software 3rd-Party
+ก่อนที่ Software ของ 3rd-Party จะสามารถสื่อสารกับ masterTime ได้ จะต้อง login ก่อน
 
 #### Endpoint
 
