@@ -7,6 +7,9 @@
 - [Client](#client)
 - [Error](#error)
 - [การ Login ของ Client](#การ-login-ของ-client)
+- [Refresh Token และ Access Token](#refresh-token-และ-access-token)
+    - [Refresh Token](#refresh-token)
+    - [Access Token](#access-token)
 - [API ที่สามารถใช้งานได้](#API-ที่สามารถใช้งานได้)
     - [การเพิ่มพนักงานใหม่](#การเพิ่มพนักงานใหม่)
 
@@ -55,6 +58,7 @@
 | error_args | ยังไม่ใช้งาน (ตอนนี้จะส่งกลับมาเป็น `NULL` เสมอ)                                         |
 
 ## การ Login ของ Client
+
 ก่อนที่ Client จะสามารถสื่อสารกับ masterTime ได้ จะต้อง login ก่อน
 
 #### Endpoint
@@ -72,10 +76,77 @@
 }
 ```
 
-__app_id__ : คือ Client ID ที่ masterTime กำหนดให้ <br>
-__secret__ : คือ Client Secret ที่ masterTime กำหนดให้ <br>
-__login_type_id__ : คือ ประเภทของการ Login ซึ่ง Software 3rd-Party ต้องส่งค่า `3` เสมอ <br>
-__company_uuid__ : คือ
+##### คำอธิบาย
+
+| ชื่อ Field    | คำอธิบาย                                                       |
+|---------------|----------------------------------------------------------------|
+| app_id        | Client ID ที่ masterTime กำหนดให้                              |
+| secret        | Client Secret ที่ masterTime กำหนดให้                          |
+| login_type_id | ประเภทของการ Login ซึ่ง Software 3rd-Party ต้องส่งค่า `3` เสมอ |
+| company_uuid  |                                                                |
+
+#### Response
+
+##### 200 (Login สำเร็จ)
+
+```json
+{
+  "refresh_token": "eyJDb21wYW55SUQiOjEsIkVtcGxveWVlSUQiOjAA=",
+  "access_token": "4N2UyMmIzOWFlMDUyOGQ0M2QyMmJkMDRjZTgzMWM=",
+  "company": {
+    "company_uuid": "string",
+    "company_code": "string",
+    "title_th": "string",
+    "title_en": "string"
+  },
+  "login_type": {
+    "login_type_id": 3,
+    "title_th": "แอพพลิเคชั่นซอฟต์แวร์",
+    "title_en": "Software Application"
+  },
+  "developer": null,
+  "taff_admin": null,
+  "company_admin": null,
+  "employee": null,
+  "hardware": null,
+  "software_3rd_party": {
+    "app_id": "{Client ID}",
+    "is_active": true
+  },
+  "mobile_unique_code": "",
+  "vendor": "",
+  "model": "",
+  "web_browser": "",
+  "os_version": "",
+  "sw_version": ""
+}
+```
+
+ให้ Client เก็บ `refresh_token` และ `access_token` ไว้ เพื่อใช้เรียกใช้งาน API ของ masterTime ต่อไป
+
+##### 400 (Bad Request)
+
+`Request` ไม่ถูกต้อง
+
+##### 401 (Unauthorized)
+
+Login ไม่สำเร็จ, `Client ID` หรือ `Client Secret` อาจจะผิด
+
+##### 403 (Forbidden)
+
+การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
+
+#### 500 (Internal Server Error)
+
+เกิดข้อผิดพลาดในระบบ masterTime
+
+## Refresh Token และ Access Token
+
+เมื่อ Client ทำการ Login สำเร็จ
+
+### Refresh Token
+
+### Access Token
 
 ## API ที่สามารถใช้งานได้
 
