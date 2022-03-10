@@ -416,7 +416,16 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
       "title_en": "string"
     }
   },
-  "company_location": null,
+  "company_location": {
+    "company_location_uuid": "string",
+    "company_location_code": "string",
+    "title_th": "string",
+    "title_en": "string",
+    "latitude": "string",
+    "longitude": "string",
+    "radius_meter": 100,
+    "timezone": "+07:00"
+  },
   "time_attendance_offsite_grant": {
     "time_attendance_offsite_grant_uuid": "string",
     "time_attendance_offsite_grant_code": "string",
@@ -432,7 +441,21 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
       "timezone": "+07:00"
     }
   },
-  "hardware": null,
+  "hardware": {
+    "hardware_uuid": "string",
+    "hardware_code": "string",
+    "title_th": "string",
+    "title_en": "string",
+    "hardware_serial_number": "string",
+    "hardware_model": {
+      "hardware_model_code": "string",
+      "title": "string",
+      "hardware_manufacturer": {
+        "hardware_manufacturer_code": "string",
+        "title": "string"
+      }
+    }
+  },
   "employee": {
     "employee_uuid": "string",
     "employee_code": "string",
