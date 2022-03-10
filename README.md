@@ -1,5 +1,7 @@
 # masterTime API for Software 3rd-Party Documentation (v0.9.0)
 
+Last Updated : `10 March 2022`
+
 ## หัวข้อ
 
 - [ข้อมูลเบื้องต้น](#ข้อมูลเบื้องต้น)
