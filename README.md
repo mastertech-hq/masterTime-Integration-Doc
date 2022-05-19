@@ -17,7 +17,7 @@ Last Updated : `10 March 2022`
 - [API ที่สามารถใช้งานได้](#API-ที่สามารถใช้งานได้)
     - [การเพิ่มพนักงานใหม่](#การเพิ่มพนักงานใหม่)
     - [การให้สิทธิ์พนักงานลงเวลานอกสถานที่](#การให้สิทธิ์พนักงานลงเวลานอกสถานที่)
-- [Web hook](#web-hooks)
+- [Webhooks](#webhooks)
     - [Basic Authentication](#basic-authentication)
     - [Events](#events)
         - [New Transaction Event](#new-transaction-event)
@@ -353,9 +353,9 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 เกิดข้อผิดพลาดในระบบ masterTime
 
-## Web Hooks
+## Webhooks
 
-ระบบ masterTime ให้บริการ `Event` ผ่านกลไกของ `Web Hooks` เพื่อให้ผู้ที่เชื่อมต่อกับระบบ masterTime ได้รับข้อมูลแบบ
+ระบบ masterTime ให้บริการ `Event` ผ่านกลไกของ `Webhooks` เพื่อให้ผู้ที่เชื่อมต่อกับระบบ masterTime ได้รับข้อมูลแบบ
 `Real-time` โดยมีข้อตกลงเบื่องต้นดังนี้
 
 - ผู้ที่ต้องการรับ Event จาก masterTime จะต้องเป็น Server
