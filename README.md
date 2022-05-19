@@ -135,19 +135,19 @@ Last Updated : `10 March 2022`
 
 ##### 400 (Bad Request)
 
-`Request` ไม่ถูกต้อง
+- `Request` ไม่ถูกต้อง
 
 ##### 401 (Unauthorized)
 
-Login ไม่สำเร็จ, `Client ID` หรือ `Client Secret` อาจจะผิด
+- Login ไม่สำเร็จ, `Client ID` หรือ `Client Secret` อาจจะผิด
 
 ##### 403 (Forbidden)
 
-การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
+- การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
 
 #### 500 (Internal Server Error)
 
-เกิดข้อผิดพลาดในระบบ masterTime
+- เกิดข้อผิดพลาดในระบบ masterTime
 
 ## Refresh Token และ Access Token
 
