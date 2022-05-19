@@ -100,7 +100,7 @@ Last Updated : `10 March 2022`
 
 ```json
 {
-  "refresh_token": "eyJDb21wYW55SUQiOjEsIkVtcGxveWVlSUQiOjAA=",
+  "refresh_token": "eyJDb21wYW55SUQiOjEsIkVtcGxMeWVlSUQiOjAA=",
   "access_token": "4N2UyMmIzOWFlMDUyOGQ0M2QyMmJkMDRjZTgzMWM=",
   "company": {
     "company_uuid": "string",
@@ -210,7 +210,7 @@ masterTime
 
 ```json
 {
-  "refresh_token": "eyJDb21wYW55SUQiOjEsIkVtcGxveWVlSUQiOjAA=",
+  "refresh_token": "eyJDb21wYW55SUQiOjEsIkVtcGxMeWVlSUQiOjAA=",
   "access_token": "4N2UyMmIzOWFlMDUyOGQ0M2QyMmJkMDRjZTgzMWM="
 }
 ```
