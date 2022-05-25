@@ -380,12 +380,11 @@ API ที่สามารถใช้งานได้ มีดังนี
 เมื่อ masterTime ส่ง Event ให้ Event Receiver จะมี `timeout 5 วินาที` ถ้าหาก masterTime ไม่ได้รับ response ในเวลาที่กำหนดจะถือว่าเกิด Timeout
 
 ## Retry Mechanism
-เมื่อเกิด Timeout ขึ้น masterTime จะพยายามส่ง Event เดิมทั้งหมด 10 ครั้ง โดยการส่งแต่ละครั้งจะห่างกัน 
-`$2^N + T$` ms.
+เมื่อเกิด Timeout ขึ้น masterTime จะพยายามส่ง Event เดิมทั้งหมด 10 ครั้ง โดยการส่งแต่ละครั้งจะนานขึ้นเรื่อย ๆ ซึ่งจะห่างกัน 
+$2^N$ milliseconds
 
 โดยที่
-- N = delivery_attempt - 1 
-- T = ตัวเลขที่สุ่มตั้งแต่ 1 - 999
+- N = delivery_attempt - 1 (delivery_attempt คือ จำนวนครั้งที่พยายามส่ง Event นี้)
 
 ## Events
 
