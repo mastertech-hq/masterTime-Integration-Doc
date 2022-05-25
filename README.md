@@ -29,10 +29,11 @@ Last Updated : `10 March 2022`
 - เราใช้ `HTTP Response Status Code` เพื่อบอกว่าการ `Request` นั้น `Success` หรือ `Error` ตามความหมายของโค้ดนั้น ๆ
 - API ของ masterTime ยอมรับ `https` เท่านั้น
 
-## Root Endpoint
+## Root Endpoint ของ masterTime
 
-- สำหรับ `development` : `https://api-demo.mastertime.io/api/v1/`
-- สำหรับ `production` : `https://api.mastertime.io/api/v1/`
+```
+https://api.mastertime.io/api/v1/
+```
 
 ## Client
 
