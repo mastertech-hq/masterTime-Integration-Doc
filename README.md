@@ -379,7 +379,9 @@ API ที่สามารถใช้งานได้ มีดังนี
 - ผู้ที่ต้องการรับ Event จาก masterTime จะต้องกำหนด `Username` และ `Password` ให้กับ masterTime
 - masterTime จะส่ง Basic Authentication ไปใน `HTTP Authorization` header ทุกครั้งที่ส่ง Event ดังนี้
 
-`Authorization: Basic {BASE64_ENCODED(Username:Password)}`
+```
+Authorization: Basic {BASE64_ENCODED(Username:Password)}
+```
 
 ## Timeout 5 วินาที
 
