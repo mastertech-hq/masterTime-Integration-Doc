@@ -356,6 +356,8 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 # Webhooks
 
+**หมายเหตุ :** หลังจากนี้ masterTime จะมีรายละเอียดเกี่ยวกับ Webhooks ใน `Developer Portal` ด้วย
+
 ระบบ masterTime ให้บริการ `Event` ผ่านกลไกของ `Webhooks` เพื่อให้ผู้ที่เชื่อมต่อกับระบบ masterTime ได้รับข้อมูลแบบ
 `Real-time` โดยมีข้อตกลงเบื่องต้นดังนี้
 
@@ -368,38 +370,60 @@ API ที่สามารถใช้งานได้ มีดังนี
   masterTime
 - ทุกครั้งที่ masterTime ส่ง Event ไปให้, masterTime จะส่ง `Basic Authentication` ไปใน `HTTP Authorization` header
   โดยใช้เป็น `Basic authentication` ทุกครั้ง
+- Event Receiver ต้องตรวจสอบ `IP Whitelist` ของ masterTime เสมอ
+- Event Receiver ต้องเป็น `Idempotent` คือ ระบบ masterTime อาจส่ง Event เดิมซ้ำมาหลายครั้ง, Event Receiver ต้องสามารถจัดการได้โดยไม่เกิดปัญหา
 
 ## Basic Authentication
 
-- ผู้ที่ต้องการรับ Event จาก masterTime จะต้องกำหนด `CLIENT_ID` และ `CLIENT_SECRET` ให้กับ masterTime
+- ผู้ที่ต้องการรับ Event จาก masterTime จะต้องกำหนด `Username` และ `Password` ให้กับ masterTime
 - masterTime จะส่ง Basic Authentication ไปใน `HTTP Authorization` header ทุกครั้งที่ส่ง Event ดังนี้
 
-`Authorization: Basic {BASE64_ENCODED(CLIENT_ID:CLIENT_SECRET)}`
+`Authorization: Basic {BASE64_ENCODED(Username:Password)}`
 
-## Timeout
-เมื่อ masterTime ส่ง Event ให้ Event Receiver จะมี `timeout 5 วินาที` ถ้าหาก masterTime ไม่ได้รับ response ในเวลาที่กำหนดจะถือว่าเกิด Timeout
+## Timeout 5 วินาที
+
+เมื่อ masterTime ส่ง Event ให้ Event Receiver จะมี `timeout 5 วินาที` ถ้าหาก masterTime ไม่ได้รับ response
+ในเวลาที่กำหนดจะถือว่าเกิด Timeout
 
 ## Retry Mechanism
-เมื่อเกิด Timeout ขึ้น masterTime จะพยายามส่ง Event เดิมทั้งหมด 10 ครั้ง โดยการส่งแต่ละครั้งจะนานขึ้นเรื่อย ๆ ซึ่งจะห่างกัน 
+
+เมื่อเกิด Timeout ขึ้น masterTime จะพยายามส่ง Event เดิมทั้งหมด 10 ครั้ง โดยการส่งแต่ละครั้งจะนานขึ้นเรื่อย ๆ
+ซึ่งจะห่างกัน
 $2^N$ milliseconds
 
 โดยที่
+
 - N = delivery_attempt - 1 (delivery_attempt คือ จำนวนครั้งที่พยายามส่ง Event นี้)
+
+## การหยุดส่ง Event
+
+masterTime จะหยุดส่ง Event เมื่อ
+- masterTime ได้รับ response 4XX หรือ 5XX
+- masterTime พยายามส่ง Event เดิมครบ 10 ครั้ง และไม่ได้รับ response `202 Accepted`
 
 ## Events
 
+**Event Header**
+
+- masterTime จะส่ง Basic Authentication ไปใน `HTTP Authorization` header ทุกครั้งที่ส่ง Event ดังนี้
+
+```
+Authorization: Basic {BASE64_ENCODED(Username:Password)}
+```
+
 **Event body**
+
 ```json
 {
-	"event_uuid": "4f90f1ee-6c54-4b01-90e6-d701748f08534",
-	"topic": "employee.transaction.mobile",
-	"latest_delivery": "2017-08-29T09:12:33.001Z",
-	"first_delivery": "2017-08-29T09:12:33.001Z",
-	"delivery_attempt": 2,
-	"delivery_state": "open",
-	"subscription_uuid": "4f90f1ee-6c54-4b01-90e6-d701748f08534",
-	"affected_resource": "api.mastertime.io/v1/resources/transaction/4f90f1ee-6c54-4b01-90e6-d701748f08534",
-	"payload": {}
+  "event_uuid": "4f90f1ee-6c54-4b01-90e6-d701748f08534",
+  "topic": "employee.transaction.mobile",
+  "latest_delivery": "2017-08-29T09:12:33.001Z",
+  "first_delivery": "2017-08-29T09:12:33.001Z",
+  "delivery_attempt": 2,
+  "delivery_state": "open",
+  "subscription_uuid": "4f90f1ee-6c54-4b01-90e6-d701748f08534",
+  "affected_resource": "api.mastertime.io/v1/resources/transaction/4f90f1ee-6c54-4b01-90e6-d701748f08534",
+  "payload": {}
 }
 ```
 
@@ -429,16 +453,21 @@ $2^N$ milliseconds
 
 **หมายเหตุ :** Events ที่ masterTime จะส่งไปที่ Event Receiver โดยทั่วไปจะเป็น `open` เสมอ
 
-
-## Event Types
+## Topics (Event Types) ทีมีให้บริการ
 
 ระบบ masterTime มี Event types สำหรับ Web Hooks ไว้ให้บริการ ดังนี้
 
-1. New Transaction from mobile app 
+1. New Transaction from mobile app
 
-## Event : New Transaction from mobile app
+## 1. Event : New Transaction from mobile app 
 
-Event นี้จะส่งเมื่อเกิด Transaction ใหม่ในระบบ masterTime
+Event นี้จะส่งเมื่อเกิด Transaction ใหม่ในระบบ masterTime จาก mobile application.
+
+### Topic
+
+```
+"topic": "employee.transaction.mobile",
+```
 
 ### Payload
 
@@ -575,22 +604,39 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
 
 ### Response
 
-#### 200 (Successful)
+#### 202 (Accepted)
 
-ได้รับ Event สำเร็จ
+- ได้รับ Event สำเร็จ
+- Event Receiver ควรเก็บ Event ลงใน Incoming Event Queue ก่อน แล้วตอบ `202 Accepted` กลับมาที่ masterTime เพื่อไม่ให้เกิน Timeout ที่กำหนด
+- หลังจากนั้น Event Receiver ค่อยประมวนผล Event ใน Incoming Event Queue แบบ Asynchronous
 
 #### 400 (Bad Request)
 
-`Request Body` ของ `Event` ที่ masterTime ส่งไป รูปแบบไม่ถูกต้อง
-
-ผู้รับ Event ต้องตรวจสอบว่า Implement ตามเอกสารล่าสุดของ masterTime หรือไม่
+- `Request Body` ของ `Event` ที่ masterTime ส่งไป รูปแบบไม่ถูกต้อง
+- ผู้รับ Event ต้องตรวจสอบว่า Implement ตามเอกสารล่าสุดของ masterTime หรือไม่
 
 #### 401 (Unauthorized)
 
-`CLIENT_ID` และ `CLIENT_SECRET` ใน Basic Authentication ที่ masterTime ส่งไปใน `HTTP Authorization` header ไม่ถูกต้อง
+- `Username` และ `Password` ใน Basic Authentication ที่ masterTime ส่งไปใน `HTTP Authorization` header ไม่ถูกต้อง
+- ผู้รับ Event ต้องตรวจสอบว่าระบุ `Username` และ `Password` ไว้ถูกต้องหรือไม่
 
-ผู้รับ Event ต้องตรวจสอบว่าระบุ `CLIENT_ID` และ `CLIENT_SECRET` ไว้ถูกต้องหรือไม่
+#### 404 (Webhook not found / Topic not processed here)
+- ไม่พบ Endpoint ของ Event Receiver
+- หรือ Event Receiver Endpoint นี้ไม่รองรับ Topic ที่ส่งมา
 
-#### 500 (Internal Server Error)
+#### 500 (Server Error)
 
-เกิดข้อผิดพลาดในระบบของผู้รับ Event
+- เกิดข้อผิดพลาดในระบบของผู้รับ Event
+
+#### 503 (Server Error, Server is overloaded, try again later)
+
+- Server is overloaded
+
+
+## แนะนำการออกแบบ Architecture ของ Event Receiver Endpoint
+
+**Event Receiver Architecture :**
+![Event Receiver Architecture](img/event-receiver-architecture.png)
+
+**Event Receiver Behavior :**
+![Event Receiver Behavior](img/event-receiver-behavior.png)
