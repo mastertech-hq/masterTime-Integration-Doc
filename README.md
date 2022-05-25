@@ -174,16 +174,16 @@ masterTime
 
 #### 2xx (Success)
 
-การ Request ของ Client สำเร็จ และจะได้รับผลลัพธ์กลับมาทาง Request Body
+- การ Request ของ Client สำเร็จ และจะได้รับผลลัพธ์กลับมาทาง Request Body
 
 #### 401 (Access Token is invalid)
 
-ในกรณีนี้หมายถึง Access Token หมดอายุ, Client จะต้องขอ Access Token ใหม่ ด้วย Refresh Token (
-ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
+- ในกรณีนี้หมายถึง Access Token หมดอายุ, Client จะต้องขอ Access Token ใหม่ ด้วย Refresh Token (
+  ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
 
 #### 403 (No Permission)
 
-ในกรณีนี้หมายถึง Access Token นี้ไม่มีสิทธิ์ในเรียกใช้งาน API ดังกล่าว
+- ในกรณีนี้หมายถึง Access Token นี้ไม่มีสิทธิ์ในเรียกใช้งาน API ดังกล่าว
 
 ## การขอ Access Token ใหม่ ด้วย Refresh Token
 
@@ -216,12 +216,12 @@ masterTime
 }
 ```
 
-ให้ Client เก็บ `refresh_token` และ `access_token` ไว้ เพื่อเรียกใช้งาน API ของ masterTime ต่อไป
+- ให้ Client เก็บ `refresh_token` และ `access_token` ไว้ เพื่อเรียกใช้งาน API ของ masterTime ต่อไป
 
 ##### 401 (Unauthorized)
 
-Client จะได้รับ `401` เมื่อขอ `Access Token` ใหม่ `ไม่สำเร็จ`, Client จะต้อง Login อีกครั้ง (
-ดู [การ Login ของ Client](#การ-login-ของ-client))
+- Client จะได้รับ `401` เมื่อขอ `Access Token` ใหม่ `ไม่สำเร็จ`, Client จะต้อง Login อีกครั้ง (
+  ดู [การ Login ของ Client](#การ-login-ของ-client))
 
 ## API ที่สามารถใช้งานได้
 
@@ -280,29 +280,29 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 #### 200 (Successful)
 
-การเพิ่มพนักงานใหม่สำเร็จ
+- การเพิ่มพนักงานใหม่สำเร็จ
 
 #### 400 (Bad Request)
 
-`Request` ไม่ถูกต้อง
+- `Request` ไม่ถูกต้อง
 
 #### 401 (Access Token is invalid)
 
-`Access Token` หมดอายุ, Client จะต้องขอ `Access Token` ใหม่ ด้วย `Refresh Token` ก่อนที่จะกลับมาเรียกใช้ API
-นี้อีกครั้ง (
-ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
+- `Access Token` หมดอายุ, Client จะต้องขอ `Access Token` ใหม่ ด้วย `Refresh Token` ก่อนที่จะกลับมาเรียกใช้ API
+  นี้อีกครั้ง (
+  ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
 
 #### 403 (No Permission)
 
-ในกรณีนี้หมายถึง Access Token ที่แนบมา ไม่มีสิทธิ์ในเรียกใช้งาน API นี้
+- ในกรณีนี้หมายถึง Access Token ที่แนบมา ไม่มีสิทธิ์ในเรียกใช้งาน API นี้
 
 #### 409 (Conflict)
 
-ในระบบ masterTime มีรหัสพนักงานนี้อยู่แล้ว (รหัสพนักงานซ้ำ)
+- ในระบบ masterTime มีรหัสพนักงานนี้อยู่แล้ว (รหัสพนักงานซ้ำ)
 
 #### 500 (Internal Server Error)
 
-เกิดข้อผิดพลาดในระบบ masterTime
+- เกิดข้อผิดพลาดในระบบ masterTime
 
 ## การให้สิทธิ์พนักงานลงเวลานอกสถานที่
 
@@ -334,37 +334,38 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 #### 200 (Successful)
 
-การให้สิทธิ์พนักงานลงเวลานอกสถานที่สำเร็จ
+- การให้สิทธิ์พนักงานลงเวลานอกสถานที่สำเร็จ
 
 #### 400 (Bad Request)
 
-`Request` ไม่ถูกต้อง
+- `Request` ไม่ถูกต้อง
 
 #### 401 (Access Token is invalid)
 
-`Access Token` หมดอายุ, Client จะต้องขอ `Access Token` ใหม่ ด้วย `Refresh Token` ก่อนที่จะกลับมาเรียกใช้ API
-นี้อีกครั้ง (
-ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
+- `Access Token` หมดอายุ, Client จะต้องขอ `Access Token` ใหม่ ด้วย `Refresh Token` ก่อนที่จะกลับมาเรียกใช้ API
+  นี้อีกครั้ง (
+  ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
 
 #### 403 (No Permission)
 
-ในกรณีนี้หมายถึง Access Token ที่แนบมา ไม่มีสิทธิ์ในเรียกใช้งาน API นี้
+- ในกรณีนี้หมายถึง Access Token ที่แนบมา ไม่มีสิทธิ์ในเรียกใช้งาน API นี้
 
 #### 500 (Internal Server Error)
 
-เกิดข้อผิดพลาดในระบบ masterTime
+- เกิดข้อผิดพลาดในระบบ masterTime
 
-## Webhooks
+# Webhooks
 
 ระบบ masterTime ให้บริการ `Event` ผ่านกลไกของ `Webhooks` เพื่อให้ผู้ที่เชื่อมต่อกับระบบ masterTime ได้รับข้อมูลแบบ
 `Real-time` โดยมีข้อตกลงเบื่องต้นดังนี้
 
-- ผู้ที่ต้องการรับ Event จาก masterTime จะต้องเป็น Server
+- ผู้ที่ต้องการรับ Event จาก masterTime จะต้องเป็น Server (`Webhooks receiver`)
 - masterTime จะเป็น Client
-- ต้องรองรับ `https` เท่านั้น
+- `Webhooks receiver` ต้องรองรับ `https` เท่านั้น
 - masterTime จะ request ไปด้วย `POST` method
 - masterTime จะส่งข้อมูลของ Event ไปใน `Request Body`
-- ผู้ที่ต้องการรับ Event จาก masterTime จะต้องเตรียม `Endpoint` ไว้รับแต่ละ `Event` ที่ลงทะเบียนไว้กับ masterTime
+- ผู้ที่ต้องการรับ Event จาก masterTime จะต้องเตรียม `Endpoint` ไว้รับแต่ละ `Event` ที่ลงทะเบียน (Subscription) ไว้กับ
+  masterTime
 - ทุกครั้งที่ masterTime ส่ง Event ไปให้, masterTime จะส่ง `Basic Authentication` ไปใน `HTTP Authorization` header
   โดยใช้เป็น `Basic authentication` ทุกครั้ง
 
@@ -375,15 +376,70 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 `Authorization: Basic {BASE64_ENCODED(CLIENT_ID:CLIENT_SECRET)}`
 
+## Timeout
+เมื่อ masterTime ส่ง Event ให้ Event Receiver จะมี `timeout 5 วินาที` ถ้าหาก masterTime ไม่ได้รับ response ในเวลาที่กำหนดจะถือว่าเกิด Timeout
+
+## Retry Mechanism
+เมื่อเกิด Timeout ขึ้น masterTime จะพยายามส่ง Event เดิมทั้งหมด 10 ครั้ง (รวมการส่งครั้งแรก) โดยการส่งแต่ละครั้งจะห่างกัน 
+```latex
+$2^delivery_attempt + random_time_ms$
+```
+
 ## Events
 
-ระบบ masterTime มี Event สำหรับ Web Hooks ไว้ให้บริการ ดังนี้
+**Event body**
+```json
+{
+	"event_uuid": "4f90f1ee-6c54-4b01-90e6-d701748f08534",
+	"topic": "employee.transaction.mobile",
+	"latest_delivery": "2017-08-29T09:12:33.001Z",
+	"first_delivery": "2017-08-29T09:12:33.001Z",
+	"delivery_attempt": 2,
+	"delivery_state": "open",
+	"subscription_uuid": "4f90f1ee-6c54-4b01-90e6-d701748f08534",
+	"affected_resource": "api.mastertime.io/v1/resources/transaction/4f90f1ee-6c54-4b01-90e6-d701748f08534",
+	"payload": {}
+}
+```
 
-## New Transaction Event
+#### คำอธิบาย
+
+| ชื่อ Field        | คำอธิบาย                                   |
+|-------------------|--------------------------------------------|
+| event_uuid        | UUID ของ Event                             |
+| topic             | Topic ของ Event                            |
+| latest_delivery   | วันที่ - เวลา ล่าสุดที่พยายามส่ง Event นี้ |
+| first_delivery    | วันที่ - เวลา ครั้งแรกที่ส่ง Event นี้     |
+| delivery_attempt  | จำนวนครั้งที่พยายามส่ง Event นี้           |
+| delivery_state    | สถานะของ Event นี้                         |
+| subscription_uuid | UUID ของผู้ Subscribe Event นี้            |
+| affected_resource | URI ของ Resource ที่ส่งมาใน Payload        |
+| payload           | ข้อมูลของ Event นี้                        |
+
+##### อธิบาย `delivery_state` เพิ่มเติม
+
+| delivery_state | คำอธิบาย                                                                                                 |
+|----------------|----------------------------------------------------------------------------------------------------------|
+| open           | Event ที่ masterTime ยังพยายามส่งให้ Event Receiver อยู่ โดยที่ยังไม่สำเร็จหรือยกเลิกการส่งแล้ว          |
+| successfully   | Event ที่สำเร็จแล้ว                                                                                      |
+| error          | Event ที่ Event Receiver ตอบ Error กลับมา                                                                |
+| timeout        | Event ที่ Event Receiver ไม่ตอบกลับมาในเวลาที่ masterTime กำหนด                                          |
+| not-delivered  | Event ที่ masterTime ไม่ส่งให้ Event Receiver เช่น การ Subscribe ของ Event Receiver ถูก Disable ชั่วคราว |
+
+**หมายเหตุ :** Events ที่ masterTime จะส่งไปที่ Event Receiver โดยทั่วไปจะเป็น `open` เสมอ
+
+
+## Event Types
+
+ระบบ masterTime มี Event types สำหรับ Web Hooks ไว้ให้บริการ ดังนี้
+
+1. New Transaction from mobile app 
+
+## Event : New Transaction from mobile app
 
 Event นี้จะส่งเมื่อเกิด Transaction ใหม่ในระบบ masterTime
 
-### Request Body
+### Payload
 
 ```json
 {
