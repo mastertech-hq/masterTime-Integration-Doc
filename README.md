@@ -396,7 +396,9 @@ $2^N$ milliseconds
 
 โดยที่
 
-- N = delivery_attempt - 1 (delivery_attempt คือ จำนวนครั้งที่พยายามส่ง Event นี้)
+- N = delivery_attempt - 1 
+
+delivery_attempt คือ จำนวนครั้งที่พยายามส่ง Event นี้
 
 ## การหยุดส่ง Event
 
