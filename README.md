@@ -392,7 +392,7 @@ Authorization: Basic {BASE64_ENCODED(Username:Password)}
 
 เมื่อเกิด Timeout ขึ้น masterTime จะพยายามส่ง Event เดิมทั้งหมด 10 ครั้ง โดยการส่งแต่ละครั้งจะนานขึ้นเรื่อย ๆ
 ซึ่งจะห่างกัน
-$2^N$ milliseconds
+$2^N$ milliseconds (Back-off algorithm)
 
 โดยที่
 
