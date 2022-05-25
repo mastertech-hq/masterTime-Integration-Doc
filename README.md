@@ -371,7 +371,8 @@ API ที่สามารถใช้งานได้ มีดังนี
 - ทุกครั้งที่ masterTime ส่ง Event ไปให้, masterTime จะส่ง `Basic Authentication` ไปใน `HTTP Authorization` header
   โดยใช้เป็น `Basic authentication` ทุกครั้ง
 - Event Receiver ต้องตรวจสอบ `IP Whitelist` ของ masterTime เสมอ
-- Event Receiver ต้องเป็น `Idempotent` คือ ระบบ masterTime อาจส่ง Event เดิมซ้ำมาหลายครั้ง, Event Receiver ต้องสามารถจัดการได้โดยไม่เกิดปัญหา
+- Event Receiver ต้องเป็น `Idempotent` คือ ระบบ masterTime อาจส่ง Event เดิมซ้ำมาหลายครั้ง, Event Receiver
+  ต้องสามารถจัดการได้โดยไม่เกิดปัญหา
 
 ## Basic Authentication
 
@@ -398,6 +399,7 @@ $2^N$ milliseconds
 ## การหยุดส่ง Event
 
 masterTime จะหยุดส่ง Event เมื่อ
+
 - masterTime ได้รับ response 4XX หรือ 5XX
 - masterTime พยายามส่ง Event เดิมครบ 10 ครั้ง และไม่ได้รับ response `202 Accepted`
 
@@ -459,7 +461,7 @@ Authorization: Basic {BASE64_ENCODED(Username:Password)}
 
 1. New Transaction from mobile app
 
-## 1. Event : New Transaction from mobile app 
+## 1. Event : New Transaction from mobile app
 
 Event นี้จะส่งเมื่อเกิด Transaction ใหม่ในระบบ masterTime จาก mobile application.
 
@@ -607,7 +609,8 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
 #### 202 (Accepted)
 
 - ได้รับ Event สำเร็จ
-- Event Receiver ควรเก็บ Event ลงใน Incoming Event Queue ก่อน แล้วตอบ `202 Accepted` กลับมาที่ masterTime เพื่อไม่ให้เกิน Timeout ที่กำหนด
+- Event Receiver ควรเก็บ Event ลงใน Incoming Event Queue ก่อน แล้วตอบ `202 Accepted` กลับมาที่ masterTime
+  เพื่อไม่ให้เกิน Timeout ที่กำหนด
 - หลังจากนั้น Event Receiver ค่อยประมวนผล Event ใน Incoming Event Queue แบบ Asynchronous
 
 #### 400 (Bad Request)
@@ -621,6 +624,7 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
 - ผู้รับ Event ต้องตรวจสอบว่าระบุ `Username` และ `Password` ไว้ถูกต้องหรือไม่
 
 #### 404 (Webhook not found / Topic not processed here)
+
 - ไม่พบ Endpoint ของ Event Receiver
 - หรือ Event Receiver Endpoint นี้ไม่รองรับ Topic ที่ส่งมา
 
@@ -632,11 +636,12 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
 
 - Server is overloaded
 
-
 ## แนะนำการออกแบบ Architecture ของ Event Receiver Endpoint
 
-**Event Receiver Architecture :**
+### Event Receiver Architecture :
+
 ![Event Receiver Architecture](img/event-receiver-architecture.png)
 
-**Event Receiver Behavior :**
+### Event Receiver Behavior :
+
 ![Event Receiver Behavior](img/event-receiver-behavior.png)
