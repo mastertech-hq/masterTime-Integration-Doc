@@ -396,7 +396,7 @@ $2^N$ milliseconds (Back-off algorithm)
 
 โดยที่
 
-- N = delivery_attempt - 1 
+- N = delivery_attempt - 1
 
 delivery_attempt คือ จำนวนครั้งที่พยายามส่ง Event นี้
 
@@ -649,3 +649,35 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
 ### Event Receiver Behavior :
 
 ![Event Receiver Behavior](img/event-receiver-behavior.png)
+
+## Webhooks History API
+
+บางกรณี Webhook Receiver Endpoint อาจไม่ได้รับ Event จาก masterTime วึ่งอาจเกิดได้จากหลายสาเหตุ
+
+อย่างไรก็ตาม masterTime ได้เตรียม Webhooks History API ไว้ให้
+
+## การทดสอบ Webhooks
+
+### 1. ทดสอบผ่าน Postman
+
+ผู้ที่พัฒนา Event Receiver สามารถให้ [Postman](https://www.postman.com/) เพื่อทดสอบ Webhooks ได้ตาม spec ของ masterTime
+ตามเอกสารก่อนหน้านี้
+
+### 2. ทดสอบผ่าน Webhooks Ping API
+
+**หมายเหตุ :** รายละเอียดในส่วนนี้อยู่ใน masterTime's Developer Portal
+
+# Developer Portal
+
+masterTime พัฒนา Developer Portal ไว้เพื่ออำนวยความสะดวกแก่ผู้ที่ต้องการใช้ Webhooks ของ masterTime ซึ่ง Developer Portal สามารถ
+1. Documents 
+   - Topic / Events
+   - IP Whitelist ของ masterTime
+   - เอกสาร API
+2. จัดการ Webhooks
+   - Enable / Disable Webhook Events
+3. Dashboard
+   - ดู Event Log 
+   - filter ข้อมูล Event Log
+4. Testing Webhooks ด้วย `Webhooks Ping API`
+
