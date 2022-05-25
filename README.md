@@ -381,9 +381,7 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 ## Retry Mechanism
 เมื่อเกิด Timeout ขึ้น masterTime จะพยายามส่ง Event เดิมทั้งหมด 10 ครั้ง (รวมการส่งครั้งแรก) โดยการส่งแต่ละครั้งจะห่างกัน 
-```latex
-$2^delivery_attempt + random_time_ms$
-```
+$2^delivery_attempt + random_time_ms$ 
 
 ## Events
 
