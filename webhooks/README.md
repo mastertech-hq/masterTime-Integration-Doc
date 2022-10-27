@@ -421,6 +421,11 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
   "longitude": "string",
   "license_plate": "string",
   "qr_code_3rdparty": "string",
+  "data_sequence": 1,
+  "work_code": "string",
+  "manufacturer_serial_number": "string",
+  "body_temperature": "string",
+  "is_wearing_mask": true,
   "url_photo": "string",
   "created": "2022-03-10T02:29:55.906267Z"
 }
