@@ -1,6 +1,4 @@
-# masterTime API for Software 3rd-Party Documentation (v0.10.6)
-
-Last Updated : `25 May 2022`
+# Open API
 
 ## หัวข้อ
 
