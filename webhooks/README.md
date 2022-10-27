@@ -3,11 +3,11 @@
 ## หัวข้อ
 
 - [ข้อมูลเบื้องต้น](#ข้อมูลเบื้องต้น)
+- [การกำหนด Receiver Endpoint](#การกำหนด-receiver-endpoint)
 - [IP Whitelist](#ip-whitelist)
 - [Basic Authentication](#basic-authentication)
 - [Timeout](#timeout)
 - [Retry Mechanism](#retry-mechanism)
-- [การกำหนด Receiver Endpoint](#การกำหนด-receiver-endpoint)
 - [การหยุดส่ง Event และการ Disable Subscription ชั่วคราว](#การหยุดส่ง-event-และการ-disable-subscription-ชั่วคราว)
 - [การหยุดส่ง Event และการ Disable Subscription ถาวร](#การหยุดส่ง-event-และการ-disable-subscription-ถาวร)
 - [Events](#events)
@@ -32,6 +32,18 @@
   ต้องสามารถจัดการได้โดยไม่เกิดปัญหา
 - นักพัฒนาที่ต้องการใช้งาน Webhooks ของ masterTime จะต้องให้ Email Address เพื่อให้ masterTime ส่งข้อมูลสถานะของ
   Webhooks ไปให้เมื่อจำเป็น
+
+## การกำหนด Receiver Endpoint
+
+เพื่อความปลอดภัยของ Webhook Receiver Endpoint
+นักพัฒนาไม่ควรกำหนด URL ที่คาดเดาได้ง่าย
+โดยควรใส่ random string ที่แตกต่างกัน ลงใน Webhook Receiver Endpoint ด้วย เพื่อป้องกันการโจมตีจากผู้ไม่หวังดี เช่น
+
+- `https://webhook.example.com/98a0s9d7f0`
+- `https://webhook.example.com/mastertime-transaction-new/2lj34lj4`
+- `https://webhook.example.com/mastertime-transaction-new-0s8dfrsdf`
+- `https://example.com/webhook/mastertime-transaction-new/98sdk354j`
+- `https://example.com/webhook/mastertime-transaction-new-443adsjad`
 
 ## IP Whitelist
 
@@ -88,18 +100,6 @@ masterTime จะหยุดส่ง Event ชั่วคราว เมื�
 จะถูกลบจากระบบ masterTime ทั้งหมด
 
 โดยระบบ masterTime จะส่ง Email แจ้งนักพัฒนาให้ทราบด้วย
-
-## การกำหนด Receiver Endpoint
-
-เพื่อความปลอดภัยของ Webhook Receiver Endpoint
-นักพัฒนาไม่ควรกำหนด URL ที่คาดเดาได้ง่าย
-โดยควรใส่ random string ที่แตกต่างกัน ลงใน Webhook Receiver Endpoint ด้วย เพื่อป้องกันการโจมตีจากผู้ไม่หวังดี เช่น
-
-- `https://webhook.example.com/98a0s9d7f0`
-- `https://webhook.example.com/mastertime-transaction-new/2lj34lj4`
-- `https://webhook.example.com/mastertime-transaction-new-0s8dfrsdf`
-- `https://example.com/webhook/mastertime-transaction-new/98sdk354j`
-- `https://example.com/webhook/mastertime-transaction-new-443adsjad`
 
 ## Events
 
@@ -425,13 +425,14 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
 
 ## แนะนำการออกแบบ Architecture ของ Webhooks Receiver Endpoint
 
-ระบบ masterTime กำหนด timeout ในการส่ง Event ไว้ `10 วินาที` 
-เพื่อให้ทั้งระบบ masterTime และ Webhook Receiver Endpoint มี Availability 
+ระบบ masterTime กำหนด timeout ในการส่ง Event ไว้ `10 วินาที`
+เพื่อให้ทั้งระบบ masterTime และ Webhook Receiver Endpoint มี Availability
 จึงขอแนะนำให้ท่านออกแบบระบบในลักษณะดังนี้
 
-Webhooks Receiver Endpoint ควรแยกส่วนที่รับ Event จาก masterTime และส่วนประมวลผลออกจากกัน โดย 
+Webhooks Receiver Endpoint ควรแยกส่วนที่รับ Event จาก masterTime และส่วนประมวลผลออกจากกัน โดย
 
-1. `Event Receiver Frontend` รับ Event จาก masterTime แล้วนำไปใส่ Queue ไว้ และตอบ Response กลับมาที่ masterTime โดยเร็วที่สุด
+1. `Event Receiver Frontend` รับ Event จาก masterTime แล้วนำไปใส่ Queue ไว้ และตอบ Response กลับมาที่ masterTime
+   โดยเร็วที่สุด
 2. `Event Receiver Backend` เมื่อว่างแล้ว จะมารับ Event จาก Queue ไปประมวลผลในภายหลัง
 
 ### Event Receiver Architecture :
@@ -442,12 +443,12 @@ Webhooks Receiver Endpoint ควรแยกส่วนที่รับ Even
 
 ![Event Receiver Behavior](img/event-receiver-behavior.png)
 
-
 ## การทดสอบ Webhooks
 
 ### 1. ทดสอบผ่าน Webhooks Ping API
 
 เมื่อต้องการทดสอบ Webhooks Receiver Endpoint สามารถใช้ Ping API ได้
+
 ```
 https://api.mastertime.io/webhooks/subscription/{id}/ping
 ```
@@ -456,7 +457,8 @@ https://api.mastertime.io/webhooks/subscription/{id}/ping
 
 ## Developer Portal
 
-ในอนาคต masterTime จะพัฒนา Developer Portal ไว้เพื่ออำนวยความสะดวกแก่ผู้ที่ต้องการใช้ Webhooks ของ masterTime ซึ่ง Developer
+ในอนาคต masterTime จะพัฒนา Developer Portal ไว้เพื่ออำนวยความสะดวกแก่ผู้ที่ต้องการใช้ Webhooks ของ masterTime ซึ่ง
+Developer
 Portal สามารถ
 
 1. ดู Documents
