@@ -243,7 +243,8 @@ Authorization: Basic {BASE64_ENCODED(Username:Password)}
 
 เพื่อยืนยันว่า Webhooks Endpoint ใช้งานได้จริง
 masterTime จะยืนยันด้วย `"challenge_value"`
-โดยจะเป็นค่าที่ random ไปเรื่อย ๆ
+
+โดย `"challenge_value"` จะเป็นค่าที่ random ไปเรื่อย ๆ
 Webhooks Endpoint จะต้องตอบกลับมาให้ตรงกับค่าที่ส่งไป
 โดย `"challenge_value"` จะมีลักษณะดังนี้
 
