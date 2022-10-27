@@ -198,7 +198,7 @@ Confirmation Event เป็น Event พิเศษ
 masterTime จะส่ง Confirmation Event ไปที่ Webhooks Receiver Endpoint
 เดียวกันกับ Endpoint ของ Event ที่ถูก Disable ชั่วคราว
 
-Event ของ Confirmation Event ที่ถูกส่ง จะมีโครงสร้างเหมือนกับ Event อื่น ๆ โดยทั่วไป แต่มีส่วนที่แตกต่างเล็กน้อย
+Confirmation Event ที่ถูกส่ง จะมีโครงสร้างเหมือนกับ Event อื่น ๆ โดยทั่วไป แต่มีส่วนที่แตกต่างเล็กน้อย
 ซึ่งมีรายละเอียดดังนี้
 
 **Event Header**
