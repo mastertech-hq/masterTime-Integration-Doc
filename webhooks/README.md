@@ -227,17 +227,17 @@ Authorization: Basic {BASE64_ENCODED(Username:Password)}
 
 **คำอธิบาย**
 
-| ชื่อ Field        | คำอธิบาย                                                                                                      |
-|-------------------|---------------------------------------------------------------------------------------------------------------|
-| id                | ⚠️ การส่ง Confirmation Event จะไม่มี id                                                                       |
-| topic             | Topic ของ Confirmation Event จะเป็น `"confirmation"` เสมอ                                                     |
-| latest_delivery   | วันที่ - เวลา ล่าสุดที่พยายามส่ง Confirmation Event นี้                                                       |
-| first_delivery    | วันที่ - เวลา ครั้งแรกที่ส่ง Confirmation Event นี้                                                           |
-| delivery_attempt  | จำนวนครั้งที่พยายามส่ง Confirmation Event นี้ (รวมครั้งนี้ที่ได้รับ Event ด้วย)                               |
-| delivery_state    | สถานะของ Confirmation Event นี้                                                                               |
-| subscription_id   | ID ของการ Subscription Event นี้                                                                              |
-| affected_resource | ⚠️ การส่ง Confirmation Event จะไม่มี `affected_resource`                                                      |
-| thick_payload     | ข้อมูลของ Event นี้ (เป็นข้อมูล JSON ที่ถูก encode เป็น String)<br/>โดยข้อมูลที่ส่งมาจะเป็น `challenge_value` |
+| ชื่อ Field        | คำอธิบาย                                                                                                         |
+|-------------------|------------------------------------------------------------------------------------------------------------------|
+| id                | ⚠️ การส่ง Confirmation Event จะไม่มี id                                                                          |
+| topic             | Topic ของ Confirmation Event จะเป็น `"confirmation"` เสมอ                                                        |
+| latest_delivery   | วันที่ - เวลา ล่าสุดที่พยายามส่ง Confirmation Event นี้                                                          |
+| first_delivery    | วันที่ - เวลา ครั้งแรกที่ส่ง Confirmation Event นี้                                                              |
+| delivery_attempt  | จำนวนครั้งที่พยายามส่ง Confirmation Event นี้ (รวมครั้งนี้ที่ได้รับ Event ด้วย)                                  |
+| delivery_state    | สถานะของ Confirmation Event นี้                                                                                  |
+| subscription_id   | ID ของการ Subscription Event นี้                                                                                 |
+| affected_resource | ⚠️ การส่ง Confirmation Event จะไม่มี `affected_resource`                                                         |
+| thick_payload     | ⚠️ ข้อมูลของ Event นี้ (เป็นข้อมูล JSON ที่ถูก encode เป็น String)<br/>โดยข้อมูลที่ส่งมาจะเป็น `challenge_value` |
 
 **"challenge_value" ใน thick_payload**
 
