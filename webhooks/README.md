@@ -241,7 +241,7 @@ Authorization: Basic {BASE64_ENCODED(Username:Password)}
 
 **"challenge_value" ใน thick_payload**
 
-เพื่อยืนยันว่า Webhooks Endpoint ให้งานได้จริง
+เพื่อยืนยันว่า Webhooks Endpoint ใช้งานได้จริง
 masterTime จะยืนยันด้วย `"challenge_value"`
 โดยจะเป็นค่าที่ random ไปเรื่อย ๆ
 Webhooks Endpoint จะต้องตอบกลับมาให้ตรงกับค่าที่ส่งไป
