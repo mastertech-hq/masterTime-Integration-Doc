@@ -185,6 +185,8 @@ Authorization: Basic {BASE64_ENCODED(Username:Password)}
 เมื่อ Webhook Receiver Endpoint ได้รับ Event จาก masterTime
 จะต้องตอบ HTTP Response Code `202 Accepted` กลับมาภายใน 10 วินาที จึงจะถือว่าได้รับ Event สำเร็จ
 
+การตอบกลับ Event ทั่วไป ไม่จำเป็นต้องมี Response body เนื่องจาก masterTime ไม่สนใจข้อมูลดังกล่าว
+
 ยกเว้น [Confirmation Event](#confirmation-event) ซึ่งเป็น Event พิเศษ ที่มีวิธีการตอบกลับต่างจาก Event ทั่วไป
 
 ## Confirmation Event
