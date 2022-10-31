@@ -430,9 +430,9 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
   "body_temperature": "string",
   "is_wearing_mask": true,
   "url_photo": "string",
+  "note": "string"
   "created": "2022-03-10T02:29:55.906267Z",
   "updated": "2022-03-10T02:29:55.906267Z",
-  "note": "string"
 }
 ```
 
