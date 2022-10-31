@@ -339,8 +339,8 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
   "time_attendance_offsite_grant": {
     "time_attendance_offsite_grant_uuid": "string",
     "time_attendance_offsite_grant_code": "string",
-    "start_time": "2021-02-28T23:59:00Z",
-    "end_time": "2021-02-28T23:59:00Z",
+    "start_time": "2021-02-28T23:59:00",
+    "end_time": "2021-02-28T23:59:00",
     "offsite_location": {
       "offsite_location_uuid": "string",
       "offsite_location_code": "string",
@@ -422,14 +422,17 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
   "latitude": "string",
   "longitude": "string",
   "license_plate": "string",
-  "qr_code_3rdparty": "string",
+  "qr_code_3rd_party": "string",
+  "device_code_3rd_party": "string",
   "data_sequence": 1,
   "work_code": "string",
   "manufacturer_serial_number": "string",
   "body_temperature": "string",
   "is_wearing_mask": true,
   "url_photo": "string",
-  "created": "2022-03-10T02:29:55.906267Z"
+  "created": "2022-03-10T02:29:55.906267Z",
+  "updated": "2022-03-10T02:29:55.906267Z",
+  "note": "string"
 }
 ```
 
