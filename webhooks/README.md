@@ -1,7 +1,7 @@
 # Webhooks
 
-![](https://img.shields.io/badge/version-v0.12.0-brightgreen)
-![](https://img.shields.io/badge/last%20update-31%20Oct%202022-blue)
+![](https://img.shields.io/badge/version-v0.12.1-brightgreen)
+![](https://img.shields.io/badge/last%20update-5%20Nov%202022-blue)
 
 ## หัวข้อ
 
@@ -58,7 +58,7 @@
 ## IP Whitelist
 
 Webhooks receiver จะต้องตรวจสอบว่า Webhook event ถูกส่งมาจาก masterTime จริงหรือไม่ ซึ่งต้องตรวจสอบจาก IP Address
-ของผู้ส่ง ว่าตรงกับ IP Whitelist: `xxx.xxx.xxx.xxx` ของ masterTime หรือไม่
+ของผู้ส่ง ว่าตรงกับ IP Whitelist: `3.0.16.122` ของ masterTime หรือไม่
 
 ## Basic Authentication
 
