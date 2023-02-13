@@ -302,6 +302,47 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
     "transaction_uuid": "string",
     "transaction_time": "2023-01-31T23:59:42Z",
     "timezone": "+07:00",
+    "employee": {
+        "employee_code": "string",
+        "firstname_th": "string",
+        "lastname_th": "string",
+        "firstname_en": "string",
+        "lastname_en": "string",
+        "nickname": "string",
+        "level": "string",
+        "organization": {
+            "organization_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "position": {
+            "position_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "employee_type": {
+            "employee_type_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "shift": {
+            "shift_code": "string",
+            "title_th": "string",
+            "title_en": "string",
+            "time_in": "08:00",
+            "time_out": "17:00"
+        },
+        "gender": {
+            "gender_id": 1,
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "company_prefix": {
+            "company_prefix_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        }
+    },
     "company": {
         "company_code": "string",
         "title_th": "string",
@@ -356,47 +397,6 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
                 "hardware_manufacturer_code": "string",
                 "title": "string"
             }
-        }
-    },
-    "employee": {
-        "employee_code": "string",
-        "firstname_th": "string",
-        "lastname_th": "string",
-        "firstname_en": "string",
-        "lastname_en": "string",
-        "nickname": "string",
-        "level": "string",
-        "organization": {
-            "organization_code": "string",
-            "title_th": "string",
-            "title_en": "string"
-        },
-        "position": {
-            "position_code": "string",
-            "title_th": "string",
-            "title_en": "string"
-        },
-        "employee_type": {
-            "employee_type_code": "string",
-            "title_th": "string",
-            "title_en": "string"
-        },
-        "shift": {
-            "shift_code": "string",
-            "title_th": "string",
-            "title_en": "string",
-            "time_in": "08:00",
-            "time_out": "17:00"
-        },
-        "gender": {
-            "gender_id": 1,
-            "title_th": "string",
-            "title_en": "string"
-        },
-        "company_prefix": {
-            "company_prefix_code": "string",
-            "title_th": "string",
-            "title_en": "string"
         }
     },
     "card_serial_number": "string",
