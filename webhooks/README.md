@@ -337,7 +337,6 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
         "start_time": "2023-01-31T23:59:42Z",
         "end_time": "2023-01-31T23:59:42Z",
         "offsite_location": {
-            "offsite_location_code": "2023-01-31T23:59:42Z",
             "title_th": "string",
             "title_en": "string",
             "latitude": "string",
