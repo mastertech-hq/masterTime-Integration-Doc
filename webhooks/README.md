@@ -299,140 +299,122 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
 
 ```json
 {
-  "company_uuid": "string",
-  "transaction_uuid": "string",
-  "transaction_time": "2022-03-10T02:29:42Z",
-  "timezone": "+07:00",
-  "transaction_source": {
-    "transaction_source_uuid": "string",
-    "transaction_source_code": "string",
-    "title_th": "string",
-    "title_en": "string",
-    "title_short": "string"
-  },
-  "company_event": null,
-  "company_duty": {
-    "company_duty_uuid": "string",
-    "company_duty_code": "string",
-    "title_th": "string",
-    "title_en": "string",
-    "duty_code": "string",
-    "is_office": false,
-    "is_display_on_mobile": true,
-    "is_tracking_only": false,
-    "duty_type": {
-      "duty_type_id": 1,
-      "title_th": "string",
-      "title_en": "string"
-    }
-  },
-  "company_location": {
-    "company_location_uuid": "string",
-    "company_location_code": "string",
-    "title_th": "string",
-    "title_en": "string",
+    "transaction_uuid": "string",
+    "transaction_time": "2023-01-31T23:59:42Z",
+    "timezone": "+07:00",
+    "company": {
+        "company_code": "string",
+        "title_th": "string",
+        "title_en": "string"
+    },
+    "transaction_source": {
+        "transaction_source_code": "string",
+        "title_th": "string",
+        "title_en": "string",
+        "title_short": "string"
+    },
+    "company_duty": {
+        "title_th": "string",
+        "title_en": "string",
+        "duty_code": "string",
+        "is_office": true,
+        "is_tracking_only": false,
+        "duty_type": {
+            "duty_type_id": 1,
+            "title_th": "string",
+            "title_en": "string"
+        }
+    },
+    "company_location": {
+        "title_th": "string",
+        "title_en": "string",
+        "latitude": "string",
+        "longitude": "string",
+        "radius_meter": 100,
+        "timezone": "+07:00"
+    },
+    "time_attendance_offsite_grant": {
+        "start_time": "2023-01-31T23:59:42Z",
+        "end_time": "2023-01-31T23:59:42Z",
+        "offsite_location": {
+            "offsite_location_code": "2023-01-31T23:59:42Z",
+            "title_th": "string",
+            "title_en": "string",
+            "latitude": "string",
+            "longitude": "string",
+            "timezone": "+07:00"
+        }
+    },
+    "hardware": {
+        "hardware_code": "string",
+        "title_th": "string",
+        "title_en": "string",
+        "hardware_serial_number": "string",
+        "hardware_model": {
+            "hardware_model_code": "string",
+            "title": "string",
+            "hardware_manufacturer": {
+                "hardware_manufacturer_code": "string",
+                "title": "string"
+            }
+        }
+    },
+    "employee": {
+        "employee_code": "string",
+        "firstname_th": "string",
+        "lastname_th": "string",
+        "firstname_en": "string",
+        "lastname_en": "string",
+        "nickname": "string",
+        "level": "string",
+        "organization": {
+            "organization_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "position": {
+            "position_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "employee_type": {
+            "employee_type_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "shift": {
+            "shift_code": "string",
+            "title_th": "string",
+            "title_en": "string",
+            "time_in": "08:00",
+            "time_out": "17:00"
+        },
+        "gender": {
+            "gender_id": 1,
+            "title_th": "string",
+            "title_en": "string"
+        },
+        "company_prefix": {
+            "company_prefix_code": "string",
+            "title_th": "string",
+            "title_en": "string"
+        }
+    },
+    "card_serial_number": "string",
     "latitude": "string",
     "longitude": "string",
-    "radius_meter": 100,
-    "timezone": "+07:00"
-  },
-  "time_attendance_offsite_grant": {
-    "time_attendance_offsite_grant_uuid": "string",
-    "time_attendance_offsite_grant_code": "string",
-    "start_time": "2021-02-28T23:59:00",
-    "end_time": "2021-02-28T23:59:00",
-    "offsite_location": {
-      "offsite_location_uuid": "string",
-      "offsite_location_code": "string",
-      "title_th": "string",
-      "title_en": "string",
-      "latitude": "string",
-      "longitude": "string",
-      "timezone": "+07:00"
-    }
-  },
-  "hardware": {
-    "hardware_uuid": "string",
-    "hardware_code": "string",
-    "title_th": "string",
-    "title_en": "string",
-    "hardware_serial_number": "string",
-    "hardware_model": {
-      "hardware_model_code": "string",
-      "title": "string",
-      "hardware_manufacturer": {
-        "hardware_manufacturer_code": "string",
-        "title": "string"
-      }
-    }
-  },
-  "employee": {
-    "employee_uuid": "string",
-    "employee_code": "string",
-    "firstname_th": "string",
-    "lastname_th": "string",
-    "firstname_en": "string",
-    "lastname_en": "string",
-    "organization": {
-      "organization_uuid": "string",
-      "organization_code": "string",
-      "title_th": "string",
-      "title_en": "string"
-    },
-    "position": {
-      "position_uuid": "string",
-      "position_code": "string",
-      "title_th": "string",
-      "title_en": "string"
-    },
-    "employee_type": {
-      "employee_type_uuid": "string",
-      "employee_type_code": "string",
-      "title_th": "string",
-      "title_en": "string"
-    },
-    "shift": {
-      "shift_uuid": "string",
-      "shift_code": "string",
-      "title_th": "string",
-      "title_en": "string",
-      "time_in": "08:00",
-      "time_out": "17:00"
-    },
-    "role": {
-      "role_uuid": "string",
-      "role_code": "string",
-      "title_th": "string",
-      "title_en": "string"
-    },
-    "gender": {
-      "gender_id": 1,
-      "title_th": "string",
-      "title_en": "string"
-    },
-    "company_prefix": {
-      "company_prefix_uuid": "string",
-      "company_prefix_code": "string",
-      "title_th": "string",
-      "title_en": "string"
-    }
-  },
-  "card_serial_number": "string",
-  "mobile_unique_code": "string",
-  "latitude": "string",
-  "longitude": "string",
-  "license_plate": "string",
-  "qr_code_3rd_party": "string",
-  "device_code_3rd_party": "string",
-  "data_sequence": 1,
-  "work_code": "string",
-  "manufacturer_serial_number": "string",
-  "body_temperature": "string",
-  "is_wearing_mask": true,
-  "url_photo": "string",
-  "note": "string",
-  "created": "2022-03-10T02:29:55.906267Z",
-  "updated": "2022-03-10T02:29:55.906267Z"
+    "license_plate": "string",
+    "qr_code_3rd_party": "string",
+    "device_code_3rd_party": "string",
+    "data_sequence": 1,
+    "work_code": "string",
+    "manufacturer_serial_number": "string",
+    "body_temperature": "string",
+    "is_wearing_mask": true,
+    "url_photo": "string",
+    "note": "string",
+    "created": "2023-01-31T23:59:42Z",
+    "updated": "2023-01-31T23:59:42Z"
 }
 ```
 
