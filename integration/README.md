@@ -104,7 +104,9 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 ### Endpoint
 
-`/std/func/new-employee-with-offsite-grant`
+```
+/std/func/new-employee-with-offsite-grant
+```
 
 ### HTTP Method
 
