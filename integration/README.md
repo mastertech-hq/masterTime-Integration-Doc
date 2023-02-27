@@ -80,9 +80,9 @@ Authorization: Basic {BASE64_ENCODED(client_id:client_secret)}
 
 ##### 401 (Unauthorized)
 
-- Login ไม่สำเร็จ
+- ยืนยันตัวตนไม่สำเร็จ
 - อาจจะไม่มี HTTP Authorization header ในการ Request
-- `Client ID` หรือ `Client Secret` อาจจะผิด
+- `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
 
 ##### 403 (Forbidden)
 
@@ -142,6 +142,8 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 #### คำอธิบาย
 
+
+
 | ชื่อ Field            | คำอธิบาย                                                     |
 |-----------------------|--------------------------------------------------------------|
 | company_uuid          | UUID ของบริษัทที่ต้องการเพิ่มพนักงานใหม่                     |
@@ -166,69 +168,19 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 - `Request` ไม่ถูกต้อง
 
-#### 401 (Access Token is invalid)
+##### 401 (Unauthorized)
 
-- `Access Token` หมดอายุ, Client จะต้องขอ `Access Token` ใหม่ ด้วย `Refresh Token` ก่อนที่จะกลับมาเรียกใช้ API
-  นี้อีกครั้ง (
-  ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
+- ยืนยันตัวตนไม่สำเร็จ
+- อาจจะไม่มี HTTP Authorization header ในการ Request
+- `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
 
-#### 403 (No Permission)
+##### 403 (Forbidden)
 
-- ในกรณีนี้หมายถึง Access Token ที่แนบมา ไม่มีสิทธิ์ในเรียกใช้งาน API นี้
+- การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
 
 #### 409 (Conflict)
 
 - ในระบบ masterTime มีรหัสพนักงานนี้อยู่แล้ว (รหัสพนักงานซ้ำ)
-
-#### 500 (Internal Server Error)
-
-- เกิดข้อผิดพลาดในระบบ masterTime
-
-## การให้สิทธิ์พนักงานลงเวลานอกสถานที่
-
-### Endpoint
-
-`/function/grant-time-attendance-offsite`
-
-### HTTP Method
-
-`POST`
-
-### Request Body
-
-```json
-{
-    "company_uuid": "string",
-    "employee_code": "string"
-}
-```
-
-#### คำอธิบาย
-
-| ชื่อ Field    | คำอธิบาย                                                 |
-|---------------|----------------------------------------------------------|
-| company_uuid  | UUID ของบริษัทที่ต้องการให้สิทธิ์พนักงานลงเวลานอกสถานที่ |
-| employee_code | รหัสพนักงาน                                              |
-
-### Response
-
-#### 200 (Successful)
-
-- การให้สิทธิ์พนักงานลงเวลานอกสถานที่สำเร็จ
-
-#### 400 (Bad Request)
-
-- `Request` ไม่ถูกต้อง
-
-#### 401 (Access Token is invalid)
-
-- `Access Token` หมดอายุ, Client จะต้องขอ `Access Token` ใหม่ ด้วย `Refresh Token` ก่อนที่จะกลับมาเรียกใช้ API
-  นี้อีกครั้ง (
-  ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
-
-#### 403 (No Permission)
-
-- ในกรณีนี้หมายถึง Access Token ที่แนบมา ไม่มีสิทธิ์ในเรียกใช้งาน API นี้
 
 #### 500 (Internal Server Error)
 
