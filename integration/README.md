@@ -1,7 +1,7 @@
-# Open API
+# masterTime's Integration APIs
 
-![](https://img.shields.io/badge/version-v0.11.0-brightgreen)
-![](https://img.shields.io/badge/last%20update-27%20Oct%202022-blue)
+![](https://img.shields.io/badge/version-v0.1.0-brightgreen)
+![](https://img.shields.io/badge/last%20update-27%20Feb%202023-blue)
 
 ## หัวข้อ
 
@@ -9,15 +9,10 @@
 - [Root Endpoint](#root-endpoint)
 - [Client](#client)
 - [Error](#error)
-- [การ Login ของ Client](#การ-login-ของ-client)
-- [Refresh Token และ Access Token](#refresh-token-และ-access-token)
-  - [Refresh Token](#refresh-token)
-  - [Access Token](#access-token)
-  - [การเรียกใช้ API ด้วย Access Token](#การเรียกใช้-api-ด้วย-access-token)
-  - [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token)
-- [API ที่สามารถใช้งานได้](#API-ที่สามารถใช้งานได้)
-  - [การเพิ่มพนักงานใหม่](#การเพิ่มพนักงานใหม่)
-  - [การให้สิทธิ์พนักงานลงเวลานอกสถานที่](#การให้สิทธิ์พนักงานลงเวลานอกสถานที่)
+- [Basic Authentication](#basic-authentication)
+- [HTTP Response Status Code](#http-response-status-code)
+- [API ที่สามารถใช้งานได้](#api-ที่สามารถใช้งานได้)
+    - [1. การเพิ่มพนักงานใหม่และให้สิทธิ์พนักงานลงเวลานอกสถานที่](#1การเพิ่มพนักงานใหม่และให้สิทธิ์พนักงานลงเวลานอกสถานที่)
 
 ## ข้อมูลเบื้องต้น
 
@@ -26,10 +21,10 @@
 - เราใช้ `HTTP Response Status Code` เพื่อบอกว่าการ `Request` นั้น `Success` หรือ `Error` ตามความหมายของโค้ดนั้น ๆ
 - API ของ masterTime ยอมรับ `https` เท่านั้น
 
-## Root Endpoint ของ masterTime
+## Root Endpoint
 
 ```
-https://api.mastertime.io/api/v1/
+https://api.mastertime.io/api/v1/integration/
 ```
 
 ## Client
@@ -44,12 +39,12 @@ https://api.mastertime.io/api/v1/
 
 ```json
 {
-  "status": 500,
-  "message": "some messages that the programmer can describe this error",
-  "time": "2022-03-01T11:08:34.318Z",
-  "log_id": "string",
-  "error_code": "string",
-  "error_args": {}
+    "status": 500,
+    "message": "some messages that the programmer can describe this error",
+    "time": "2022-03-01T11:08:34.318Z",
+    "log_id": "string",
+    "error_code": "string",
+    "error_args": {}
 }
 ```
 
@@ -64,72 +59,20 @@ https://api.mastertime.io/api/v1/
 | error_code | รหัสสำหรับแต่ละ Error ที่เกิดขึ้นในระบบ masterTime                                       |
 | error_args | ยังไม่ใช้งาน (ตอนนี้จะส่งกลับมาเป็น `NULL` เสมอ)                                         |
 
-## การ Login ของ Client
+## Basic Authentication
 
-ก่อนที่ Client จะสามารถสื่อสารกับ masterTime ได้ จะต้อง login ก่อน
+- ผู้ที่ต้องการใช้งาน Integration APIs จาก masterTime จะได้รับ `client_id` และ `client_secret` จาก masterTime
+- Client จะต้องส่ง Basic Authentication มาใน `HTTP Authorization` header ทุกครั้งที่เรียกใช้งาน APIs ดังนี้
 
-#### Endpoint
-
-`/auth/login/software3rdparty`
-
-#### Request Body
-
-```json
-{
-  "app_id": "string",
-  "secret": "string",
-  "login_type_id": 3,
-  "company_uuid": "string"
-}
+```
+Authorization: Basic {BASE64_ENCODED(client_id:client_secret)}
 ```
 
-##### คำอธิบาย
+## HTTP Response Status Code
 
-| ชื่อ Field    | คำอธิบาย                                                       |
-|---------------|----------------------------------------------------------------|
-| app_id        | Client ID ที่ masterTime กำหนดให้                              |
-| secret        | Client Secret ที่ masterTime กำหนดให้                          |
-| login_type_id | ประเภทของการ Login ซึ่ง Software 3rd-Party ต้องส่งค่า `3` เสมอ |
-| company_uuid  |                                                                |
+##### 2xx (Success)
 
-#### Response
-
-##### 200 (Login สำเร็จ)
-
-```json
-{
-  "refresh_token": "eyJDb21wYW55SUQiOjEsIkVtcGxMeWVlSUQiOjAA=",
-  "access_token": "4N2UyMmIzOWFlMDUyOGQ0M2QyMmJkMDRjZTgzMWM=",
-  "company": {
-    "company_uuid": "string",
-    "company_code": "string",
-    "title_th": "string",
-    "title_en": "string"
-  },
-  "login_type": {
-    "login_type_id": 3,
-    "title_th": "แอพพลิเคชั่นซอฟต์แวร์",
-    "title_en": "Software Application"
-  },
-  "developer": null,
-  "taff_admin": null,
-  "company_admin": null,
-  "employee": null,
-  "hardware": null,
-  "software_3rd_party": {
-    "app_id": "{Client ID}",
-    "is_active": true
-  },
-  "mobile_unique_code": "",
-  "vendor": "",
-  "model": "",
-  "web_browser": "",
-  "os_version": "",
-  "sw_version": ""
-}
-```
-
-ให้ Client เก็บ `refresh_token` และ `access_token` ไว้ เพื่อเรียกใช้งาน API ของ masterTime ต่อไป
+- สำเร็จ
 
 ##### 400 (Bad Request)
 
@@ -137,7 +80,9 @@ https://api.mastertime.io/api/v1/
 
 ##### 401 (Unauthorized)
 
-- Login ไม่สำเร็จ, `Client ID` หรือ `Client Secret` อาจจะผิด
+- Login ไม่สำเร็จ
+- อาจจะไม่มี HTTP Authorization header ในการ Request
+- `Client ID` หรือ `Client Secret` อาจจะผิด
 
 ##### 403 (Forbidden)
 
@@ -147,93 +92,19 @@ https://api.mastertime.io/api/v1/
 
 - เกิดข้อผิดพลาดในระบบ masterTime
 
-## Refresh Token และ Access Token
-
-เมื่อ Client ทำการ Login สำเร็จ จะได้รับ `refresh_token` และ `access_token` เพื่อเรียกใช้งาน API ของ masterTime ต่อไป
-
-### Refresh Token
-
-เป็น `token` ที่มีอายุค่อนข้างยาว ใช้สำหรับขอ `access_token` ใหม่ เมื่อ `access_token` หมดอายุ
-
-### Access Token
-
-เป็น `token` ที่มีอายุค่อนข้างสั้น ใช้สำหรับเรียกใช้ API ของ masterTime โดยจะต้องแนบ `access_token`
-ใน `HTTP Authorization` header โดยใช้เป็น `bearer token`
-
-## การเรียกใช้ API ด้วย Access Token
-
-Client ต้องแนบ `access_token` ใน `HTTP Authorization` header โดยใช้เป็น `bearer token` ทุกครั้งที่เรียก API ของ
-masterTime
-
-ซึ่งในการเรียกใช้งาน API แต่ละครั้ง จะมีการตรวจสอบสิทธิ์การใช้งานจาก `access_token`
-
-ซึ่งมีโอกาสที่ `access_token` จะใช้งานไม่ได้ ดังนี้
-
-#### 2xx (Success)
-
-- การ Request ของ Client สำเร็จ และจะได้รับผลลัพธ์กลับมาทาง Request Body
-
-#### 401 (Access Token is invalid)
-
-- ในกรณีนี้หมายถึง Access Token หมดอายุ, Client จะต้องขอ Access Token ใหม่ ด้วย Refresh Token (
-  ดู [การขอ Access Token ใหม่ ด้วย Refresh Token](#การขอ-access-token-ใหม่-ด้วย-refresh-token))
-
-#### 403 (No Permission)
-
-- ในกรณีนี้หมายถึง Access Token นี้ไม่มีสิทธิ์ในเรียกใช้งาน API ดังกล่าว
-
-## การขอ Access Token ใหม่ ด้วย Refresh Token
-
-เมื่อ Access Token หมดอายุ, Client จะต้องขอ Access Token ใหม่ ด้วย Refresh Token โดยมีรายละเอียดดังนี้
-
-#### Endpoint
-
-`/auth/request-access-token`
-
-#### HTTP Method
-
-`POST`
-
-#### Request Body
-
-```json
-{
-  "refresh_token": "{refresh_token}"
-}
-```
-
-#### Response
-
-##### 200 (Success)
-
-```json
-{
-  "refresh_token": "eyJDb21wYW55SUQiOjEsIkVtcGxMeWVlSUQiOjAA=",
-  "access_token": "4N2UyMmIzOWFlMDUyOGQ0M2QyMmJkMDRjZTgzMWM="
-}
-```
-
-- ให้ Client เก็บ `refresh_token` และ `access_token` ไว้ เพื่อเรียกใช้งาน API ของ masterTime ต่อไป
-
-##### 401 (Unauthorized)
-
-- Client จะได้รับ `401` เมื่อขอ `Access Token` ใหม่ `ไม่สำเร็จ`, Client จะต้อง Login อีกครั้ง (
-  ดู [การ Login ของ Client](#การ-login-ของ-client))
-
 ## API ที่สามารถใช้งานได้
 
 ระบบ masterTime ให้ Software ภายนอกที่ได้รับอนุญาต สามารถเรียกใช้งาน API ได้
 
-โดยการเรียก API ทุกครั้ง Client ต้องแนบ `access_token` ใน `HTTP Authorization` header โดยใช้เป็น `bearer token`
-มาด้วยทุกครั้ง (ดู [การเรียกใช้ API ด้วย Access Token](#การเรียกใช้-api-ด้วย-access-token))
+โดยการเรียก API ทุกครั้ง Client จะต้องส่ง Basic Authentication มาใน `HTTP Authorization` header ด้วยเสมอ
 
 API ที่สามารถใช้งานได้ มีดังนี้
 
-## การเพิ่มพนักงานใหม่
+## 1. การเพิ่มพนักงานใหม่และให้สิทธิ์พนักงานลงเวลานอกสถานที่
 
 ### Endpoint
 
-`/function/new-employee`
+`/std/func/new-employee-with-offsite-grant`
 
 ### HTTP Method
 
@@ -243,17 +114,17 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 ```json
 {
-  "company_uuid": "string",
-  "employee_code": "string",
-  "employee_firstname_th": "string",
-  "employee_lastname_th": "string",
-  "employee_firstname_en": "string",
-  "employee_lastname_en": "string",
-  "organization_code": "string",
-  "position_code": "string",
-  "employee_type_code": "string",
-  "shift_code": "string",
-  "role_code": "string"
+    "company_uuid": "string",
+    "employee_code": "string",
+    "employee_firstname_th": "string",
+    "employee_lastname_th": "string",
+    "employee_firstname_en": "string",
+    "employee_lastname_en": "string",
+    "organization_code": "string",
+    "position_code": "string",
+    "employee_type_code": "string",
+    "shift_code": "string",
+    "role_code": "string"
 }
 ```
 
@@ -315,8 +186,8 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 ```json
 {
-  "company_uuid": "string",
-  "employee_code": "string"
+    "company_uuid": "string",
+    "employee_code": "string"
 }
 ```
 
