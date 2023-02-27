@@ -70,6 +70,8 @@ Authorization: Basic {BASE64_ENCODED(client_id:client_secret)}
 
 ## HTTP Response Status Code
 
+HTTP Response Status Code มาตรฐานของ masterTime มีดังนี้
+
 ##### 2xx (Success)
 
 - สำเร็จ
@@ -127,15 +129,17 @@ API ที่สามารถใช้งานได้ มีดังนี
         "shift_code": "string"
     },
     "offsite_grant": {
-        "location": {
-            "location_code": "string",
-            "title_th": "string",
-            "title_en": "string",
-            "latitude": "string",
-            "longitude": "string",
-            "timezone": "string",
-            "radius_meter": 100
-        },
+        "location": [
+            {
+                "location_code": "string",
+                "title_th": "string",
+                "title_en": "string",
+                "latitude": "string",
+                "longitude": "string",
+                "timezone": "string",
+                "radius_meter": 100
+            }
+        ],
         "start_time": "",
         "end_time": ""
     }
@@ -144,7 +148,14 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 #### คำอธิบาย
 
+Request body ประกอบด้วย 2 ส่วน คือ "employee" และ "offsite_grant" 
 
+- **employee:** 
+  - ข้อมูลพนักงานใหม่ 
+  - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+- **offsite_grant:** 
+  - ข้อมูลการลงเวลานอกสถานที่
+  - ข้อมูลส่วนนี้สามารถเป็น `null` ได้เมื่อไม่ต้องการให้สิทธิ์
 
 | ชื่อ Field            | คำอธิบาย                                                     |
 |-----------------------|--------------------------------------------------------------|
