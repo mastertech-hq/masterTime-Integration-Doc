@@ -1,7 +1,7 @@
 # Webhooks
 
-![](https://img.shields.io/badge/version-v0.12.1-brightgreen)
-![](https://img.shields.io/badge/last%20update-5%20Nov%202022-blue)
+![](https://img.shields.io/badge/version-v0.13.3-brightgreen)
+![](https://img.shields.io/badge/last%20update-13%20Feb%202023-blue)
 
 ## หัวข้อ
 
