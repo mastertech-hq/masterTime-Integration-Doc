@@ -12,7 +12,7 @@
 - [Basic Authentication](#basic-authentication)
 - [HTTP Response Status Code](#http-response-status-code)
 - [API ที่สามารถใช้งานได้](#api-ที่สามารถใช้งานได้)
-    - [1. การเพิ่มพนักงานใหม่และให้สิทธิ์พนักงานลงเวลานอกสถานที่](#1การเพิ่มพนักงานใหม่และให้สิทธิ์พนักงานลงเวลานอกสถานที่)
+    - [1. การเพิ่มพนักงานใหม่และให้สิทธิ์พนักงานลงเวลานอกสถานที่](#1-การเพิ่มพนักงานใหม่และให้สิทธิ์พนักงานลงเวลานอกสถานที่)
 
 ## ข้อมูลเบื้องต้น
 
@@ -114,17 +114,29 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 ```json
 {
-    "company_uuid": "string",
-    "employee_code": "string",
-    "employee_firstname_th": "string",
-    "employee_lastname_th": "string",
-    "employee_firstname_en": "string",
-    "employee_lastname_en": "string",
-    "organization_code": "string",
-    "position_code": "string",
-    "employee_type_code": "string",
-    "shift_code": "string",
-    "role_code": "string"
+    "employee": {
+        "company_uuid": "string",
+        "employee_code": "string",
+        "firstname_th": "string",
+        "lastname_th": "string",
+        "organization_code": "string",
+        "position_code": "string",
+        "employee_type_code": "string",
+        "shift_code": "string"
+    },
+    "offsite_grant": {
+        "location": {
+            "location_code": "string",
+            "title_th": "string",
+            "title_en": "string",
+            "latitude": "string",
+            "longitude": "string",
+            "timezone": "string",
+            "radius_meter": 100
+        },
+        "start_time": "",
+        "end_time": ""
+    }
 }
 ```
 
