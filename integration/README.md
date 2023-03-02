@@ -1,6 +1,6 @@
 # masterTime's Integration APIs
 
-![](https://img.shields.io/badge/version-v0.2.1-brightgreen)
+![](https://img.shields.io/badge/version-v0.3.0-brightgreen)
 ![](https://img.shields.io/badge/last%20update-2%20Mar%202023-blue)
 
 ## หัวข้อ
