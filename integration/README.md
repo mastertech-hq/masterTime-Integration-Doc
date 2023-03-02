@@ -1,6 +1,6 @@
 # masterTime's Integration APIs
 
-![](https://img.shields.io/badge/version-v0.2.0-brightgreen)
+![](https://img.shields.io/badge/version-v0.2.1-brightgreen)
 ![](https://img.shields.io/badge/last%20update-2%20Mar%202023-blue)
 
 ## หัวข้อ
@@ -152,7 +152,7 @@ API ที่สามารถใช้งานได้ มีดังนี
     },
     "options": {
         "duplication": {
-            "unique_field": "string",
+            "unique_field": "string (employee_code|identification_number)",
             "duplicate_action": "string (deny|update)"
         }
     }
@@ -243,18 +243,18 @@ Request body ประกอบด้วย 2 ส่วน คือ `employee` 
 
 ##### ข้อมูลใน `options` object
 
-| ชื่อ Field  | คำอธิบาย                                                                                                             |
-|-------------|----------------------------------------------------------------------------------------------------------------------|
-| duplication | ระบุการทำงานเมื่อข้อมูลพนักงานซ้ำ (default คือ `null` หมายถึง ถ้า duplication จะ error โดยได้รับ Response code: 409) |
+| ชื่อ Field  | คำอธิบาย                                                                                                                     |
+|-------------|------------------------------------------------------------------------------------------------------------------------------|
+| duplication | ระบุเงื่อนไขการทำงานเมื่อข้อมูลพนักงานซ้ำ (default คือ `null` หมายถึง ถ้า duplication จะ error โดยได้รับ Response code: 409) |
 
 ##### ข้อมูลใน `duplication` object
 
 ถ้าต้องการให้ API นี้ ทำงานกับข้อมูลที่ duplicate ตามที่ต้องการ
 
-| ชื่อ Field       | คำอธิบาย                                                                                                            |
-|------------------|---------------------------------------------------------------------------------------------------------------------|
-| unique_field     | ระบบุว่า Unique field ใดที่ต้องการให้ตรวจสอบ duplicate คือ field ใด                                                 |
-| duplicate_action | ระบุว่าเมื่อเกิด duplicate จะให้ทำอย่างไร ("`deny`" = error (409), "`update`" = อัพเดตข้อมูลพนักงานตามข้อมูลล่าสุด) |
+| ชื่อ Field       | คำอธิบาย                                                                                                                                         |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| unique_field     | ระบบุว่า Unique field ใดที่ต้องการให้ตรวจสอบ duplicate คือ field ใด ("`employee_code`" หรือ "`identification_number`")                           |
+| duplicate_action | ระบุว่าเมื่อเกิด duplicate จะให้ทำอย่างไร ("`deny`" = error (409), "`update`" = อัพเดตข้อมูล "`employee`" และ "`offsite_grant`" ตามข้อมูลล่าสุด) |
 
 ### Response
 
