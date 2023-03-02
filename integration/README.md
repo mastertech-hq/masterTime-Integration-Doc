@@ -119,8 +119,8 @@ API ที่สามารถใช้งานได้ มีดังนี
 ```json
 {
     "employee": {
-        "company_uuid": "string",
         "employee_code": "string",
+        "company_uuid": "string",
         "firstname_th": "string",
         "lastname_th": "string",
         "firstname_en": "string",
@@ -178,8 +178,8 @@ Request body ประกอบด้วย 2 ส่วน คือ `employee` 
 
 | ชื่อ Field            | คำอธิบาย                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| employee_code         | รหัสพนักงาน (unique key)                                                                                                  |
 | company_uuid          | UUID ของบริษัทที่ต้องการเพิ่มพนักงานใหม่                                                                                  |
-| employee_code         | รหัสพนักงาน                                                                                                               |
 | firstname_th          | ชื่อจริง (ภาษาไทย)                                                                                                        |
 | lastname_th           | นามสกุล (ภาษาไทย)                                                                                                         |
 | firstname_en          | ชื่อจริง (ภาษาอังกฤษ)                                                                                                     |
