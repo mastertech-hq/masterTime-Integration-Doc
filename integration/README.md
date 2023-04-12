@@ -323,18 +323,18 @@ API ที่สามารถใช้งานได้ มีดังนี
         "location": [
             {
                 "location_code": "string",
+                "radius_meter": 100,
                 "location_detail": {
                     "title_th": "string",
                     "title_en": "string",
                     "latitude": "string",
                     "longitude": "string",
-                    "timezone": "string",
-                    "radius_meter": 100
+                    "timezone": "string"
                 }
             }
         ],
-        "start_time": "2006-01-02T15:00",
-        "end_time": "2026-01-02T15:00"
+        "start_time": "2006-01-02T15:00Z",
+        "end_time": "2026-01-02T15:00Z"
     }
 }
 ```
