@@ -74,21 +74,21 @@ Authorization: Basic {BASE64_ENCODED(client_id:client_secret)}
 
 HTTP Response Status Code มาตรฐานของ masterTime มีดังนี้
 
-##### 2xx (Success)
+#### 2xx (Success)
 
 - สำเร็จ
 
-##### 400 (Bad Request)
+#### 400 (Bad Request)
 
 - `Request` ไม่ถูกต้อง
 
-##### 401 (Unauthorized)
+#### 401 (Unauthorized)
 
 - ยืนยันตัวตนไม่สำเร็จ
 - อาจจะไม่มี HTTP Authorization header ในการ Request
 - `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
 
-##### 403 (Forbidden)
+#### 403 (Forbidden)
 
 - การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
 
@@ -191,13 +191,13 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 - `Request` ไม่ถูกต้อง
 
-##### 401 (Unauthorized)
+#### 401 (Unauthorized)
 
 - ยืนยันตัวตนไม่สำเร็จ
 - อาจจะไม่มี HTTP Authorization header ในการ Request
 - `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
 
-##### 403 (Forbidden)
+#### 403 (Forbidden)
 
 - การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
 
@@ -277,13 +277,13 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 - `Request` ไม่ถูกต้อง
 
-##### 401 (Unauthorized)
+#### 401 (Unauthorized)
 
 - ยืนยันตัวตนไม่สำเร็จ
 - อาจจะไม่มี HTTP Authorization header ในการ Request
 - `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
 
-##### 403 (Forbidden)
+#### 403 (Forbidden)
 
 - การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
 
@@ -395,7 +395,7 @@ Request body ประกอบด้วย 2 ส่วน คือ `employee` 
 - ระบุ `location_code` ที่**ไม่เคยมี**ในระบบ
 - ระบุ `location_detail` ให้ครบทุก fields
 
-###### (II) กการระบุข้อมูลสถานที่ให้พนักงาน โดยการใช้ location เดิมที่มีอยู่แล้วในระบบ
+###### (II) การระบุข้อมูลสถานที่ให้พนักงาน โดยการใช้ location เดิมที่มีอยู่แล้วในระบบ
 
 - ระบุ `location_code` ที่**มีอยู่แล้ว**ในระบบ
 - ระบุ `location_detail` เป็น `null`
@@ -417,13 +417,13 @@ Request body ประกอบด้วย 2 ส่วน คือ `employee` 
 
 - `Request` ไม่ถูกต้อง
 
-##### 401 (Unauthorized)
+#### 401 (Unauthorized)
 
 - ยืนยันตัวตนไม่สำเร็จ
 - อาจจะไม่มี HTTP Authorization header ในการ Request
 - `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
 
-##### 403 (Forbidden)
+#### 403 (Forbidden)
 
 - การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
 
