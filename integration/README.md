@@ -1,6 +1,6 @@
 # masterTime's Integration APIs
 
-![](https://img.shields.io/badge/version-v0.4.1-brightgreen)
+![](https://img.shields.io/badge/version-v0.5.0-brightgreen)
 ![](https://img.shields.io/badge/last%20update-17%20May%202023-blue)
 
 ## หัวข้อ
@@ -256,6 +256,11 @@ API ที่สามารถใช้งานได้ มีดังนี
             "boolean_field_1": true,
             "boolean_field_2": false
         }
+    },
+    "options": {
+        "unique_field": [
+            "string"
+        ]
     }
 }
 ```
@@ -284,6 +289,16 @@ API ที่สามารถใช้งานได้ มีดังนี
 | shift_code            | รหัสของกะการทำงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                     |
 | role_code             | รหัสของสิทธิ์การใช้งาน ในตอนนี้ต้องส่งค่า `NULL`                                                                                                                                              |
 | optional_information  | ข้อมูลเพิ่มเติม (สามารถเป็น `null` ได้)<br/>- สามารถใช้เก็บข้อมูลอะไรก็ได้<br/>- สามารถใช้ชื่อ field อย่างไรก็ได้<br/>- field ต้องเป็นประเภท string, integer, float, boolean                  |
+
+##### ข้อมูลใน `options` object
+
+| ชื่อ Field   | คำอธิบาย                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| unique_field | ระบุเงื่อนไขการตรวจสอบ field ของข้อมูลพนักงานเพิ่มเติมเพื่อป้องการข้อมูลซ้ำซ้อน (default คือ `null` ไม่มีการตรวจสอบ) |
+
+###### `unique_field` ที่สามารถใช้งานได้
+
+- `identification_number`: เพื่อป้องกันไม่ให้ "**เลขประจำตัวที่ราชการออกให้**" ซ้ำกัน
 
 ### Response
 
