@@ -12,10 +12,20 @@
 - [Basic Authentication](#basic-authentication)
 - [HTTP Response Status Code](#http-response-status-code)
 - [API ที่สามารถใช้งานได้](#api-ที่สามารถใช้งานได้)
--
-    - [1. การเพิ่มพนักงานใหม่](#1-การเพิ่มพนักงานใหม่)
-    - [2. แก้ไขข้อมูลพนักงาน](#2-แก้ไขข้อมูลพนักงาน)
-    - [3. กำหนดสิทธิ์พนักงานลงเวลานอกสถานที่](#3-กำหนดสิทธิ์พนักงานลงเวลานอกสถานที่)
+    - [1. พนักงาน]()
+        - [1.1 การเพิ่มพนักงานใหม่](#1-การเพิ่มพนักงานใหม่)
+        - [1.2 แก้ไขข้อมูลพนักงาน](#2-แก้ไขข้อมูลพนักงาน)
+        - [1.3 การขอข้อมูลพนักงาน 1 คน](#1-การเพิ่มพนักงานใหม่)
+        - [1.4 การขอ List ข้อมูลพนักงาน](#2-แก้ไขข้อมูลพนักงาน)
+        - [1.5 ลบพนักงาน](#2-แก้ไขข้อมูลพนักงาน)
+    - [2. สถานที่สำหรับการลงเวลา]()
+        - [2.1 การเพิ่มสถานที่สำหรับการลงเวลา](#1-การเพิ่มสถานที่สำหรับการลงเวลา)
+        - [2.2 การแก้ไขสถานที่สำหรับการลงเวลา](#1-การเพิ่มสถานที่สำหรับการลงเวลา)
+        - [2.3 การขอข้อมูลสถานที่สำหรับการลงเวลา](#1-การเพิ่มสถานที่สำหรับการลงเวลา)
+        - [2.4 การข้อ List สถานที่สำหรับการลงเวลา](#1-การเพิ่มสถานที่สำหรับการลงเวลา)
+        - [2.5 การลบสถานที่สำหรับการลงเวลา](#1-การเพิ่มสถานที่สำหรับการลงเวลา)
+    - [3. กำหนดสิทธิ์การลงเวลานอกสถานที่ของพนักงาน]()
+        - [3.1 กำหนดสิทธิ์พนักงานลงเวลานอกสถานที่](#3-กำหนดสิทธิ์พนักงานลงเวลานอกสถานที่)
 
 ## ข้อมูลเบื้องต้น
 
@@ -105,7 +115,9 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 
 API ที่สามารถใช้งานได้ มีดังนี้
 
-## 1. การเพิ่มพนักงานใหม่
+## 1. พนักงาน
+
+## 1.1 การเพิ่มพนักงานใหม่
 
 ### Endpoint
 
@@ -122,14 +134,13 @@ API ที่สามารถใช้งานได้ มีดังนี
 ```json
 {
     "employee": {
-        "company_uuid": "string",
         "employee_code": "string",
         "firstname_th": "string",
         "lastname_th": "string",
         "firstname_en": "string",
         "lastname_en": "string",
+        "identification_type": "string",
         "identification_number": "string",
-        "identification_type": "string (thai|foreign|passport)",
         "organization_code": "string",
         "position_code": "string",
         "employee_type_code": "string",
@@ -164,22 +175,21 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 ##### ข้อมูลใน `employee` object
 
-| ชื่อ Field            | คำอธิบาย                                                                                                                                                                                      |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| company_uuid          | UUID ของบริษัทที่ต้องการเพิ่มพนักงานใหม่                                                                                                                                                      |
-| employee_code         | รหัสพนักงาน (จะต้องไม่ซ้ำกัน)                                                                                                                                                                 |
-| firstname_th          | ชื่อจริง (ภาษาไทย)                                                                                                                                                                            |
-| lastname_th           | นามสกุล (ภาษาไทย)                                                                                                                                                                             |
-| firstname_en          | ชื่อจริง (ภาษาอังกฤษ)                                                                                                                                                                         |
-| lastname_en           | นามสกุล (ภาษาอังกฤษ)                                                                                                                                                                          |
-| identification_number | เลขประจำตัวที่ราชการออกให้, สามารถเป็นค่า `null` ได้                                                                                                                                          |
-| identification_type   | ประเภทของ `identification_number` ("`thai`" = เลขบัตรประชาชน, "`foreign`" = เลขบัตรต่างด้าว, "`passport`" = เลข passport), สามารถเป็นค่า `null` ได้ถ้า `identification_number` เป็นค่า `null` |
-| organization_code     | รหัสของหน่วยงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                       |
-| position_code         | รหัสของตำแหน่ง (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                        |
-| employee_type_code    | รหัสของประเภทพนักงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                  |
-| shift_code            | รหัสของกะการทำงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                     |
-| role_code             | รหัสของสิทธิ์การใช้งาน ในตอนนี้ต้องส่งค่า `NULL`                                                                                                                                              |
-| optional_information  | ข้อมูลเพิ่มเติม (สามารถเป็น `null` ได้)<br/>- สามารถใช้เก็บข้อมูลอะไรก็ได้<br/>- สามารถใช้ชื่อ field อย่างไรก็ได้<br/>- field ต้องเป็นประเภท string, integer, float, boolean                  |
+| ชื่อ Field            | คำอธิบาย                                                                                                                                                                                                          |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| employee_code         | รหัสพนักงาน (จะต้องไม่ซ้ำกัน)                                                                                                                                                                                     |
+| firstname_th          | ชื่อจริง (ภาษาไทย)                                                                                                                                                                                                |
+| lastname_th           | นามสกุล (ภาษาไทย)                                                                                                                                                                                                 |
+| firstname_en          | ชื่อจริง (ภาษาอังกฤษ)                                                                                                                                                                                             |
+| lastname_en           | นามสกุล (ภาษาอังกฤษ)                                                                                                                                                                                              |
+| identification_type   | ประเภทของ `identification_number`<br/>- `"thai"` = เลขบัตรประชาชน<br/>- `"foreign"` = เลขบัตรต่างด้าว<br/>- `"passport"` = เลข passport)<br/>- สามารถเป็นค่า `null` ได้ถ้า `identification_number` เป็นค่า `null` |
+| identification_number | เลขประจำตัวที่ราชการออกให้, สามารถเป็นค่า `null` ได้                                                                                                                                                              |
+| organization_code     | รหัสของหน่วยงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                           |
+| position_code         | รหัสของตำแหน่ง (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                            |
+| employee_type_code    | รหัสของประเภทพนักงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                      |
+| shift_code            | รหัสของกะการทำงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                         |
+| role_code             | รหัสของสิทธิ์การใช้งาน ในตอนนี้ต้องส่งค่า `NULL`                                                                                                                                                                  |
+| optional_information  | ข้อมูลเพิ่มเติม (สามารถเป็น `null` ได้)<br/>- สามารถใช้เก็บข้อมูลอะไรก็ได้<br/>- สามารถใช้ชื่อ field อย่างไรก็ได้<br/>- field ต้องเป็นประเภท string, integer, float, boolean                                      |
 
 ##### ข้อมูลใน `options` object
 
@@ -219,7 +229,7 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 - เกิดข้อผิดพลาดในระบบ masterTime
 
-## 2. แก้ไขข้อมูลพนักงาน
+## 1.2 แก้ไขข้อมูลพนักงาน
 
 ### Endpoint
 
@@ -236,14 +246,13 @@ API ที่สามารถใช้งานได้ มีดังนี
 ```json
 {
     "employee": {
-        "company_uuid": "string",
         "employee_code": "string",
         "firstname_th": "string",
         "lastname_th": "string",
         "firstname_en": "string",
         "lastname_en": "string",
+        "identification_type": "string",
         "identification_number": "string",
-        "identification_type": "string (thai|foreign|passport)",
         "organization_code": "string",
         "position_code": "string",
         "employee_type_code": "string",
@@ -274,22 +283,21 @@ API ที่สามารถใช้งานได้ มีดังนี
 
 ##### ข้อมูลใน `employee` object
 
-| ชื่อ Field            | คำอธิบาย                                                                                                                                                                                      |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| company_uuid          | UUID ของบริษัทที่ต้องการเพิ่มพนักงานใหม่                                                                                                                                                      |
-| employee_code         | รหัสพนักงานที่ต้องการแก้ไข                                                                                                                                                                    |
-| firstname_th          | ชื่อจริง (ภาษาไทย)                                                                                                                                                                            |
-| lastname_th           | นามสกุล (ภาษาไทย)                                                                                                                                                                             |
-| firstname_en          | ชื่อจริง (ภาษาอังกฤษ)                                                                                                                                                                         |
-| lastname_en           | นามสกุล (ภาษาอังกฤษ)                                                                                                                                                                          |
-| identification_number | เลขประจำตัวที่ราชการออกให้, สามารถเป็นค่า `null` ได้                                                                                                                                          |
-| identification_type   | ประเภทของ `identification_number` ("`thai`" = เลขบัตรประชาชน, "`foreign`" = เลขบัตรต่างด้าว, "`passport`" = เลข passport), สามารถเป็นค่า `null` ได้ถ้า `identification_number` เป็นค่า `null` |
-| organization_code     | รหัสของหน่วยงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                       |
-| position_code         | รหัสของตำแหน่ง (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                        |
-| employee_type_code    | รหัสของประเภทพนักงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                  |
-| shift_code            | รหัสของกะการทำงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                     |
-| role_code             | รหัสของสิทธิ์การใช้งาน ในตอนนี้ต้องส่งค่า `NULL`                                                                                                                                              |
-| optional_information  | ข้อมูลเพิ่มเติม (สามารถเป็น `null` ได้)<br/>- สามารถใช้เก็บข้อมูลอะไรก็ได้<br/>- สามารถใช้ชื่อ field อย่างไรก็ได้<br/>- field ต้องเป็นประเภท string, integer, float, boolean                  |
+| ชื่อ Field            | คำอธิบาย                                                                                                                                                                                                          |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| employee_code         | รหัสพนักงานที่ต้องการแก้ไข                                                                                                                                                                                        |
+| firstname_th          | ชื่อจริง (ภาษาไทย)                                                                                                                                                                                                |
+| lastname_th           | นามสกุล (ภาษาไทย)                                                                                                                                                                                                 |
+| firstname_en          | ชื่อจริง (ภาษาอังกฤษ)                                                                                                                                                                                             |
+| lastname_en           | นามสกุล (ภาษาอังกฤษ)                                                                                                                                                                                              |
+| identification_number | เลขประจำตัวที่ราชการออกให้, สามารถเป็นค่า `null` ได้                                                                                                                                                              |
+| identification_type   | ประเภทของ `identification_number`<br/>- `"thai"` = เลขบัตรประชาชน<br/>- `"foreign"` = เลขบัตรต่างด้าว<br/>- `"passport"` = เลข passport)<br/>- สามารถเป็นค่า `null` ได้ถ้า `identification_number` เป็นค่า `null` |
+| organization_code     | รหัสของหน่วยงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                           |
+| position_code         | รหัสของตำแหน่ง (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                            |
+| employee_type_code    | รหัสของประเภทพนักงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                      |
+| shift_code            | รหัสของกะการทำงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                         |
+| role_code             | รหัสของสิทธิ์การใช้งาน ในตอนนี้ต้องส่งค่า `NULL`                                                                                                                                                                  |
+| optional_information  | ข้อมูลเพิ่มเติม (สามารถเป็น `null` ได้)<br/>- สามารถใช้เก็บข้อมูลอะไรก็ได้<br/>- สามารถใช้ชื่อ field อย่างไรก็ได้<br/>- field ต้องเป็นประเภท string, integer, float, boolean                                      |
 
 ##### ข้อมูลใน `options` object
 
@@ -306,6 +314,163 @@ API ที่สามารถใช้งานได้ มีดังนี
 #### 200 (Successful)
 
 - การแก้ไขข้อมูลพนักงานสำเร็จ
+
+#### 400 (Bad Request)
+
+- `Request` ไม่ถูกต้อง
+
+#### 401 (Unauthorized)
+
+- ยืนยันตัวตนไม่สำเร็จ
+- อาจจะไม่มี HTTP Authorization header ในการ Request
+- `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
+
+#### 403 (Forbidden)
+
+- การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
+
+#### 404 (Not Found)
+
+- ไม่พบรหัสพนักงานนี้ในระบบ masterTime
+
+#### 409 (Conflict)
+
+- ในระบบ masterTime มี identification_number นี้ในข้อมูลพนักงานคนอื่นแล้ว
+
+#### 500 (Internal Server Error)
+
+- เกิดข้อผิดพลาดในระบบ masterTime
+
+## 1.3 การขอข้อมูลพนักงาน 1 คน
+
+### Endpoint
+
+```
+/std/func/get-employee
+```
+
+### HTTP Method
+
+`POST`
+
+### Request Body
+
+```json
+{
+    "employee": {
+        "employee_code": "540501756"
+    }
+}
+```
+
+#### คำอธิบาย
+
+- **`employee`:**
+    - ข้อมูลพนักงานที่ต้องการข้อมูล
+    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+
+##### ข้อมูลใน `employee` object
+
+| ชื่อ Field    | คำอธิบาย                   |
+|---------------|----------------------------|
+| employee_code | รหัสพนักงานที่ต้องการแก้ไข |
+
+### Response Body
+
+```json
+{
+    "employee": {
+        "employee_code": "string",
+        "firstname_th": "string",
+        "lastname_th": "string",
+        "firstname_en": "string",
+        "lastname_en": "string",
+        "identification_number": "string",
+        "identification_type": {
+            "identification_type": "thai",
+            "title_th": "หมายเลขบัตรประจำตัวประชาชนไทย",
+            "title_en": "Thai identification card number"
+        },
+        "organization": {
+            "organization_code": "103000",
+            "title_th": "ฝ่ายพัฒนาโปรแกรม",
+            "title_en": "Software Development",
+            "root_organization": {
+                "organization_code": "100000"
+            }
+        },
+        "position": {
+            "position_code": "3030",
+            "title_th": "โปรแกรมเมอร์",
+            "title_en": "Programmer"
+        },
+        "employee_type": {
+            "employee_type_code": "000001",
+            "title_th": "พนักงานรายเดือน",
+            "title_en": ""
+        },
+        "shift": {
+            "shift_code": "01",
+            "title_th": "กะกลางวัน",
+            "title_en": "Day Shift"
+        },
+        "role_code": null,
+        "optional_information": {
+            "string_field_1": "string",
+            "string_field_2": "2023-03-01T11:08:34.318Z",
+            "number_field_1": 0,
+            "number_field_2": 2.3,
+            "boolean_field_1": true,
+            "boolean_field_2": false
+        }
+    },
+    "options": {
+        "unique_field": [
+            "string"
+        ]
+    }
+}
+```
+
+#### คำอธิบาย
+
+- **`employee`:**
+    - ข้อมูลพนักงานที่ต้องการแก้ไข
+    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+
+##### ข้อมูลใน `employee` object
+
+| ชื่อ Field            | คำอธิบาย                                                                                                                                                                                                          |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| employee_code         | รหัสพนักงานที่ต้องการแก้ไข                                                                                                                                                                                        |
+| firstname_th          | ชื่อจริง (ภาษาไทย)                                                                                                                                                                                                |
+| lastname_th           | นามสกุล (ภาษาไทย)                                                                                                                                                                                                 |
+| firstname_en          | ชื่อจริง (ภาษาอังกฤษ)                                                                                                                                                                                             |
+| lastname_en           | นามสกุล (ภาษาอังกฤษ)                                                                                                                                                                                              |
+| identification_number | เลขประจำตัวที่ราชการออกให้, สามารถเป็นค่า `null` ได้                                                                                                                                                              |
+| identification_type   | ประเภทของ `identification_number`<br/>- `"thai"` = เลขบัตรประชาชน<br/>- `"foreign"` = เลขบัตรต่างด้าว<br/>- `"passport"` = เลข passport)<br/>- สามารถเป็นค่า `null` ได้ถ้า `identification_number` เป็นค่า `null` |
+| organization_code     | รหัสของหน่วยงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                           |
+| position_code         | รหัสของตำแหน่ง (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                            |
+| employee_type_code    | รหัสของประเภทพนักงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                      |
+| shift_code            | รหัสของกะการทำงาน (ต้องตรงกับที่กรอกไว้ในระบบ masterTime)                                                                                                                                                         |
+| role_code             | รหัสของสิทธิ์การใช้งาน ในตอนนี้ต้องส่งค่า `NULL`                                                                                                                                                                  |
+| optional_information  | ข้อมูลเพิ่มเติม (สามารถเป็น `null` ได้)<br/>- สามารถใช้เก็บข้อมูลอะไรก็ได้<br/>- สามารถใช้ชื่อ field อย่างไรก็ได้<br/>- field ต้องเป็นประเภท string, integer, float, boolean                                      |
+
+##### ข้อมูลใน `options` object
+
+| ชื่อ Field   | คำอธิบาย                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| unique_field | ระบุเงื่อนไขการตรวจสอบ field ของข้อมูลพนักงานเพิ่มเติมเพื่อป้องการข้อมูลซ้ำซ้อน (default คือ `null` ไม่มีการตรวจสอบ) |
+
+###### `unique_field` ที่สามารถใช้งานได้
+
+- `identification_number`: เพื่อป้องกันไม่ให้ "**เลขประจำตัวที่ราชการออกให้**" ซ้ำกัน
+
+### Response Code
+
+#### 200 (OK)
+
+- ได้รับข้อมูลตาม Response Body
 
 #### 400 (Bad Request)
 
