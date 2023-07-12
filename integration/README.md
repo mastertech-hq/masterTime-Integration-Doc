@@ -1,9 +1,29 @@
 # masterTime's Integration APIs
 
-![version: v0.5.0](https://img.shields.io/badge/version-v0.5.0-brightgreen)
-![last update: 17 May 2023](https://img.shields.io/badge/last%20update-17%20May%202023-blue)
+![version: v0.6.0](https://img.shields.io/badge/version-v0.6.0-brightgreen)
+![last update: 12 July 2023](https://img.shields.io/badge/last%20update-12%20July%202023-blue)
 
 ## หัวข้อ
+
+- [ข้อมูลเบื้องต้น](#ข้อมูลเบื้องต้น)
+- [Root Endpoint](#root-endpoint)
+- [Client](#client)
+- [Basic Authentication](#basic-authentication)
+- [HTTP Response Status Code](#http-response-status-code)
+- [Error](#error)
+- [Postman](#postman)
+- [API ที่สามารถใช้งานได้](#API-ที่สามารถใช้งานได้)
+- [Request Body สำหรับการ List ข้อมูล](#request-body-สำหรับการ-list-ข้อมูล)
+- [Request Body สำหรับการลบข้อมูล](#request-body-สำหรับการลบข้อมูล)
+- [Request Body สำหรับการเพิ่มข้อมูล](#request-body-สำหรับการเพิมขอมูล)
+- [Request Body สำหรับการแก้ไขข้อมูล](#request-body-สำหรับการแกไขขอมูล)
+- [Object ของข้อมูลในระบบ masterTime](#object-ของขอมลในระบบ-mastertime)
+    - [1. Object ของข้อมูล "พนักงาน" (Employee)](#1-object-ของขอมูล-พนักงาน-employee)
+    - [2. Object ของข้อมูล "สถานที่สำหรับลงเวลานอกสถานที่" (Off-Site Location)](#2-object-ของขอมูล-สถานทีสำหรับลงเวลานอกสถานที-off-site-location)
+    - [3. Object ของข้อมูล "หน่วยงาน" (Organization)](#3-object-ของขอมูล-หนวยงาน-organization)
+    - [4. Object ของข้อมูล "ตำแหน่งงาน" (Position)](#4-object-ของขอมูล-ตำแหนงงาน-position)
+    - [5. Object ของข้อมูล "กะเวลาการทำงาน" (Shift)](#5-object-ของขอมูล-กะเวลาการทำงาน-shift)
+    - [6. Object ของข้อมูล "ประเภทพนักงาน" (Employee Type)](#6-object-ของขอมูล-ประเภทพนักงาน-employee-type)
 
 ## ข้อมูลเบื้องต้น
 
@@ -39,33 +59,33 @@ Authorization: Basic {BASE64_ENCODED(username:password)}
 
 HTTP Response Status Code มาตรฐานของ masterTime มีดังนี้
 
-#### 2xx (Success)
+**2xx (Success)**
 
 - สำเร็จ
 
-#### 400 (Bad Request)
+**400 (Bad Request)**
 
 - `Request` ไม่ถูกต้อง
 
-#### 401 (Unauthorized)
+**401 (Unauthorized)**
 
 - ยืนยันตัวตนไม่สำเร็จ
 - อาจจะไม่มี HTTP Authorization header ในการ Request
 - `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
 
-#### 403 (Forbidden)
+**403 (Forbidden)**
 
 - การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
 
-#### 404 (Not Found)
+**404 (Not Found)**
 
 - ไม่พบข้อมูลที่ต้องการเรียกใช้งานหรือแก้ไข
 
-#### 409 (Conflict)
+**409 (Conflict)**
 
 - มีข้อมูลซ้ำกันในระบบ masterTime
 
-#### 500 (Internal Server Error)
+**500 (Internal Server Error)**
 
 - เกิดข้อผิดพลาดในระบบ masterTime
 
@@ -84,7 +104,7 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 }
 ```
 
-#### คำอธิบาย
+**คำอธิบาย**
 
 | ชื่อ Field | คำอธิบาย                                                                                 |
 |------------|------------------------------------------------------------------------------------------|
@@ -101,6 +121,8 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 - masterTime มีไฟล์ `Postman Collection` และ `Postman Environment` สำหรับทดสอบการเชื่อมต่อกับระบบ masterTime ให้
   Developer ทดสอบ
 - เอกสารในส่วนที่เหลือต้องใช้ควบคู่กับ Postman Collection และ Postman Environment ที่ masterTime จัดเตรียมไว้
+- แสดงตัวอย่างและรูปแบบของข้อมูลที่ใช้ในการเรียกใช้งาน APIs ของ masterTime
+- แสดงตัวอย่างการใช้งาน APIs ของ masterTime ในรูปแบบของ `Request` และ `Response`
 - [ดาวน์โหลด Postman Collection](postman/masterTime%20Integration%20API.postman_collection.json)
 - [ดาวน์โหลด Postman Environment](postman/masterTime%20Integration.postman_environment.json)
 
@@ -237,37 +259,6 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 }
 ```
 
-## Request Body สำหรับการเพิ่มข้อมูล
-
-ทุก API ที่เป็นการเพิ่มข้อมูล จะต้องระบุ "ประเภทของข้อมูล" และ "ข้อมูลที่ต้องการเพิ่ม"
-
-**ตัวอย่างเช่น**
-
-```json
-{
-  "organization": {
-    "organization_code": "5000",
-    "title_th": "หน่วยงานตัวอย่าง",
-    "title_en": "Example Organization",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
-    "root_organization_code": "900000"
-  }
-}
-```
-
-จากตัวอย่างข้างต้น คือการเพิ่มข้อมูลประเภทหน่วยงาน `"organization"`
-และ Object ของข้อมูลที่ต้องการเพิ่ม ซึ่งมีค่าเป็น
-
-```json
-{
-  "organization_code": "5000",
-  "title_th": "หน่วยงานตัวอย่าง",
-  "title_en": "Example Organization",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
-  "root_organization_code": "900000"
-}
-```
-
 ## Request Body สำหรับการแก้ไขข้อมูล
 
 ทุก API ที่เป็นการแก้ไขข้อมูล จะต้องระบุ "ประเภทของข้อมูล" และ "ข้อมูลที่ต้องการแก้ไข"
@@ -316,7 +307,7 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 5. กะเวลาการทำงาน (Shift)
 6. ประเภทพนักงาน (Employee Type)
 
-### 1. Object ของข้อมูล "พนักงาน"
+### 1. Object ของข้อมูล "พนักงาน" (Employee)
 
 ```json
 {
@@ -388,134 +379,117 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 
 - `identification_number`: เพื่อป้องกันไม่ให้ "**เลขประจำตัวที่ราชการออกให้**" ซ้ำกัน
 
-## 3. กำหนดสิทธิ์พนักงานลงเวลานอกสถานที่
-
-### Endpoint
-
-```
-/std/func/set-employee-offsite-grant
-```
-
-### HTTP Method
-
-`POST`
-
-### Request Body
+### 2. Object ของข้อมูล "สถานที่สำหรับลงเวลานอกสถานที่" (Off-Site Location)
 
 ```json
 {
-  "employee": {
-    "company_uuid": "string",
-    "employee_code": "string"
-  },
-  "offsite_grant": {
-    "location": [
-      {
-        "location_code": "string",
-        "radius_meter": 100,
-        "location_detail": {
-          "title_th": "string",
-          "title_en": "string",
-          "latitude": "string",
-          "longitude": "string",
-          "timezone": "string"
-        }
-      }
-    ],
-    "start_time": "2006-01-02T15:00Z",
-    "end_time": "2026-01-02T15:00Z"
+  "offsite_location": {
+    "offsite_location_code": "string",
+    "title_th": "string",
+    "title_en": "string",
+    "latitude": "string",
+    "longitude": "string",
+    "timezone": "string"
   }
 }
 ```
 
-#### คำอธิบาย
+**คำอธิบาย**
 
-Request body ประกอบด้วย 2 ส่วน คือ `employee` และ `offsite_grant`
+| ชื่อ Field            | คำอธิบาย                 |
+|-----------------------|--------------------------|
+| offsite_location_code | Code ของสถานที่          |
+| title_th              | ชื่อสถานที่ (ภาษาไทย)    |
+| title_en              | ชื่อสถานที่ (ภาษาอังกฤษ) |
+| latitude              | ละติจูด                  |
+| longitude             | ลองจิจูด                 |
+| timezone              | timezone ของสถานที่      |
 
-- **`employee`:**
-    - ข้อมูลพนักงานที่ต้องการกำหนดสิทธิ์ลงเวลานอกสถานที่
-    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
-- **`offsite_grant`:**
-    - ข้อมูลการลงเวลานอกสถานที่
-    - ข้อมูลส่วนนี้สามารถเป็น `null` ได้เมื่อไม่ต้องการให้สิทธิ์ในการลงเวลานอกสถานที่
-    - ข้อมูลนี้จะแทนที่ข้อมูลเดิมทั้งหมด
+### 3. Object ของข้อมูล "หน่วยงาน" (Organization)
 
-##### ข้อมูลใน `employee` object
+```json
+{
+  "organization": {
+    "organization_code": "string",
+    "title_th": "string",
+    "title_en": "string",
+    "description": "string",
+    "root_organization_code": "string"
+  }
+}
+```
 
-| ชื่อ Field    | คำอธิบาย                                         |
-|---------------|--------------------------------------------------|
-| company_uuid  | UUID ของบริษัทที่ต้องการเพิ่มพนักงานใหม่         |
-| employee_code | รหัสพนักงานที่ต้องการกำหนดสิทธิ์ลงเวลานอกสถานที่ |
+**คำอธิบาย**
 
-##### ข้อมูลใน `offsite_grant` object
+| ชื่อ Field             | คำอธิบาย                                                  |
+|------------------------|-----------------------------------------------------------|
+| organization_code      | Code ของหน่วยงาน                                          |
+| title_th               | ชื่อหน่วยงาน (ภาษาไทย)                                    |
+| title_en               | ชื่อหน่วยงาน (ภาษาอังกฤษ)                                 |
+| description            | คำอธิบายหน่วยงาน                                          |
+| root_organization_code | Code ของหน่วยงานระดับที่สูงกว่า ซึ่งหน่วยงานนี้สังกัดอยู่ |
 
-| ชื่อ Field | คำอธิบาย                                         |
-|------------|--------------------------------------------------|
-| location   | รายการสถานที่ที่ให้สิทธิ์ลงเวลานอกสถานที่        |
-| start_time | เวลาเริ่มต้นการให้สิทธิ์ (สามารถเป็น `null` ได้) |
-| end_time   | เวลาสิ้นสุดการให้สิทธิ์ (สามารถเป็น `null` ได้)  |
+### 4. Object ของข้อมูล "ตำแหน่งงาน" (Position)
 
-##### ข้อมูลใน `location` object
+```json
+{
+  "position": {
+    "position_code": "string",
+    "title_th": "string",
+    "title_en": "string"
+  }
+}
+```
 
-- เป็น `array`
-- มีได้มากกว่า 1 สถานที่
-- ถ้าเป็น `empty array` หรือ `[]` หมายถึง การให้สิทธิ์ลงเวลานอกสถานที่โดยไม่ระบุสถานที่
+**คำอธิบาย**
 
-| ชื่อ Field      | คำอธิบาย                                           |
-|-----------------|----------------------------------------------------|
-| location_code   | รหัสสถานที่ (ต้องระบุข้อมูลเสมอ)                   |
-| location_detail | ข้อมูลรายละเอียดของสถานที่ (สามารถเป็น `null` ได้) |
+| ชื่อ Field    | คำอธิบาย                    |
+|---------------|-----------------------------|
+| position_code | Code ของตำแหน่งงาน          |
+| title_th      | ชื่อตำแหน่งงาน (ภาษาไทย)    |
+| title_en      | ชื่อตำแหน่งงาน (ภาษาอังกฤษ) |
 
-##### ข้อมูลใน `location_detail` object
+### 5. Object ของข้อมูล "กะเวลาการทำงาน" (Shift)
 
-| ชื่อ Field   | คำอธิบาย                                          |
-|--------------|---------------------------------------------------|
-| title_th     | ชื่อสถานที่ (ภาษาไทย)                             |
-| title_en     | ชื่อสถานที่ (ภาษาอังกฤษ)                          |
-| latitude     | ละติจูด                                           |
-| longitude    | ลองจิจูด                                          |
-| timezone     | timezone ของสถานที่                               |
-| radius_meter | รัศมีที่พนักงานสามารถลงเวลาในสถานที่นี้ได้ (เมตร) |
+```json
+{
+  "shift": {
+    "shift_code": "string",
+    "title_th": "string",
+    "title_en": "string",
+    "time_in": "string",
+    "time_out": "string"
+  }
+}
+```
 
-##### ตัวอย่างการใช้งาน `location`
+**คำอธิบาย**
 
-###### (I) การระบุข้อมูลสถานที่ให้พนักงาน โดยการเพิ่ม location ใหม่
+| ชื่อ Field | คำอธิบาย                        |
+|------------|---------------------------------|
+| shift_code | Code ของกะเวลาการทำงาน          |
+| title_th   | ชื่อกะเวลาการทำงาน (ภาษาไทย)    |
+| title_en   | ชื่อกะเวลาการทำงาน (ภาษาอังกฤษ) |
+| time_in    | เวลาเข้างาน (HH:MM)             |
+| time_out   | เวลาเลิกงาน (HH:MM)             |
 
-- ระบุ `location_code` ที่**ไม่เคยมี**ในระบบ
-- ระบุ `location_detail` ให้ครบทุก fields
+### 6. Object ของข้อมูล "ประเภทพนักงาน" (Employee Type)
 
-###### (II) การระบุข้อมูลสถานที่ให้พนักงาน โดยการใช้ location เดิมที่มีอยู่แล้วในระบบ
+```json
+{
+  "employee_type": {
+    "employee_type_code": "string",
+    "title_th": "string",
+    "title_en": "string"
+  }
+}
+```
 
-- ระบุ `location_code` ที่**มีอยู่แล้ว**ในระบบ
-- ระบุ `location_detail` เป็น `null`
+**คำอธิบาย**
 
-###### (III) การระบุข้อมูลสถานที่ให้พนักงาน โดยอัพเดตข้อมูล location เดิมที่มีอยู่แล้วในระบบ
+| ชื่อ Field | คำอธิบาย                       |
+|------------|--------------------------------|
+| shift_code | Code ของประเภทพนักงาน          |
+| title_th   | ชื่อประเภทพนักงาน (ภาษาไทย)    |
+| title_en   | ชื่อประเภทพนักงาน (ภาษาอังกฤษ) |
 
-**หมายเหตุ:** จะอัพเดตให้กับพนักงานทุกคนที่ใช้ `location` นี้ด้วย
-
-- ระบุ `location_code` ที่**มีอยู่แล้ว**ในระบบ
-- ระบุ `location_detail` ให้ครบทุก fields
-
-### Response
-
-#### 200 (Successful)
-
-- การกำหนดสิทธิ์พนักงานลงเวลานอกสถานที่สำเร็จ
-
-#### 400 (Bad Request)
-
-- `Request` ไม่ถูกต้อง
-
-#### 401 (Unauthorized)
-
-- ยืนยันตัวตนไม่สำเร็จ
-- อาจจะไม่มี HTTP Authorization header ในการ Request
-- `Client ID` หรือ `Client Secret` อาจจะไม่ถูกต้อง
-
-#### 403 (Forbidden)
-
-- การยืนยันตัวตนสำเร็จ แต่ระบบ masterTime ไม่ให้ `Client ID` นี้ใช้งาน
-
-#### 500 (Internal Server Error)
-
-- เกิดข้อผิดพลาดในระบบ masterTime
