@@ -1,0 +1,5886 @@
+{
+	"info": {
+		"_postman_id": "e31c814c-2ee1-47ce-9e47-e8026bddfc0a",
+		"name": "masterTime Integration API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "537071"
+	},
+	"item": [
+		{
+			"name": "Organization",
+			"item": [
+				{
+					"name": "List Organization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"organization_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/list-organization",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"list-organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"organization_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-dev.mastertime.io/api/v1/integration/std/func/list-organization",
+									"protocol": "https",
+									"host": [
+										"api-dev",
+										"mastertime",
+										"io"
+									],
+									"path": [
+										"api",
+										"v1",
+										"integration",
+										"std",
+										"func",
+										"list-organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:07:41 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "1s0o6rVCXAJwKZu8Zs8DayRbRNVwRi4SIOy3FGqIkC3UTpgyLF7hkw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 1643,\n    \"data\": [\n        {\n            \"organization_code\": \"000100\",\n            \"title_th\": \"ทดสอบ 100\",\n            \"title_en\": \"Test 100\",\n            \"description\": null,\n            \"root_organization\": {\n                \"organization_code\": \"000100\",\n                \"title_th\": \"ทดสอบ 100\",\n                \"title_en\": \"Test 100\"\n            },\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"organization_code\": \"000101\",\n            \"title_th\": \"ทดสอบ 101\",\n            \"title_en\": \"Test 101\",\n            \"description\": null,\n            \"root_organization\": {\n                \"organization_code\": \"000101\",\n                \"title_th\": \"ทดสอบ 101\",\n                \"title_en\": \"Test 101\"\n            },\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"organization_code\": \"000102\",\n            \"title_th\": \"ทดสอบ 102\",\n            \"title_en\": \"Test 102\",\n            \"description\": null,\n            \"root_organization\": {\n                \"organization_code\": \"000102\",\n                \"title_th\": \"ทดสอบ 102\",\n                \"title_en\": \"Test 102\"\n            },\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"organization_code\": \"000110\",\n            \"title_th\": \"ทดสอบ 110\",\n            \"title_en\": \"Test 110\",\n            \"description\": null,\n            \"root_organization\": {\n                \"organization_code\": \"000110\",\n                \"title_th\": \"ทดสอบ 110\",\n                \"title_en\": \"Test 110\"\n            },\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"organization_code\": \"000111\",\n            \"title_th\": \"ค่าเริ่มต้น\",\n            \"title_en\": \"Default\",\n            \"description\": \"ทดสอบแก้ไข\",\n            \"root_organization\": {\n                \"organization_code\": \"000111\",\n                \"title_th\": \"ค่าเริ่มต้น\",\n                \"title_en\": \"Default\"\n            },\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Organization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/delete-organization",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"delete-organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-dev.mastertime.io/api/v1/integration/std/func/delete-organization",
+									"protocol": "https",
+									"host": [
+										"api-dev",
+										"mastertime",
+										"io"
+									],
+									"path": [
+										"api",
+										"v1",
+										"integration",
+										"std",
+										"func",
+										"delete-organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:08:54 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "lkB8PKLFbQXL883xAKOMtDJ3OhNNviRuUywsB1cLWIKliYL8j-q6wA=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Organization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง\",\n        \"title_en\": \"Example Organization\",\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization_code\": \"900000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/new-organization",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"new-organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง\",\n        \"title_en\": \"Example Organization\",\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization_code\": \"900000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api-dev.mastertime.io/api/v1/integration/std/func/new-organization",
+									"protocol": "https",
+									"host": [
+										"api-dev",
+										"mastertime",
+										"io"
+									],
+									"path": [
+										"api",
+										"v1",
+										"integration",
+										"std",
+										"func",
+										"new-organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "422"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:09:11 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "GapzQx4X2FNymDtVz0-_uq8Jd-1_pW1mO2dl7pnny1Fdm-t0Wiit0w=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง\",\n        \"title_en\": \"Example Organization\",\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization\": {\n            \"organization_code\": \"900000\",\n            \"title_th\": \"บริหาร\",\n            \"title_en\": \"Executive\"\n        },\n        \"created_at\": \"2023-07-11T13:09:11.433507Z\",\n        \"updated_at\": \"2023-07-11T13:09:11.433507Z\"\n    }\n}"
+						},
+						{
+							"name": "409 Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง\",\n        \"title_en\": \"Example Organization\",\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization_code\": \"900000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-organization",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-organization"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "226"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:09:18 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "9ulfUyVUSYMGz6XbIecXgv4XbA-ZCZwzsW9WZIeJm2lrEi-bikvTrg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 409,\n    \"message\": \"duplicate organization code\",\n    \"time\": \"2023-07-11T20:09:18.695678762+07:00\",\n    \"log_id\": \"6ADjLhQH\",\n    \"error_code\": \"module.integration-api.usecase.NewOrganization.Conflict.OrganizationCode\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Organization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Organization (edited)\",\n        \"description\": \"(edited) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization_code\": \"900000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/update-organization",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"update-organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Organization (edited)\",\n        \"description\": \"(edited) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization_code\": \"900000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-organization",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "458"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:10:53 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "xXTACgyqJ2xk8YQGtNyVpq3llnmv-jRYJHJ5fL_dcAV4-NuoNdiXww=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Organization (edited)\",\n        \"description\": \"(edited) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization\": {\n            \"organization_code\": \"900000\",\n            \"title_th\": \"บริหาร\",\n            \"title_en\": \"Executive\"\n        },\n        \"created_at\": \"2023-07-11T13:09:11.433507Z\",\n        \"updated_at\": \"2023-07-11T13:10:53.527864Z\"\n    }\n}"
+						},
+						{
+							"name": "404 Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"organization\": {\n        \"organization_code\": \"unknown code\",\n        \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Organization (edited)\",\n        \"description\": \"(edited) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization_code\": \"900000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-organization",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-organization"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:11:52 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "LOcLGA8jaNprzVSl_LECT1V0vdJFggbnRH8EV_Uk3l2DcCRiTPwrjg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 404,\n    \"message\": \"organization code not found\",\n    \"time\": \"2023-07-11T20:11:52.887875839+07:00\",\n    \"log_id\": \"aiXZSJuj\",\n    \"error_code\": \"module.integration-api.dao.VerifyOrganizationCode.NotFoundError\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Organization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/get-organization",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"get-organization"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"organization\": {\n        \"organization_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-organization",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-organization"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "524"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:11:11 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "fgsJ-iVB7CSLwu4N8K_KUF11paRuyxJwwx3oK8y0eF-19Df8R62cNQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"organization\": {\n        \"organization_code\": \"5000\",\n        \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Organization (edited)\",\n        \"description\": \"(edited) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\",\n        \"root_organization\": {\n            \"organization_code\": \"5000\",\n            \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Organization (edited)\"\n        },\n        \"created_at\": \"2023-07-11T13:09:11.433507Z\",\n        \"updated_at\": \"2023-07-11T13:10:53.527864Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"organization\": {\n        \"organization_code\": \"unknown code\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-organization",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-organization"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "309"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:13:45 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 f448aba82e4fd70230de47f9a261511c.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "-XBdRgFXINb5KDamvFHvTOCRhNutzCX0TlElzNErVHIlgK925z7rbQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'OrganizationCode' validation for 'organizationobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T20:13:45.838240972+07:00\",\n    \"log_id\": \"H7ZTxjhA\",\n    \"error_code\": \"module.integration-api.ctrl.validatorOrganizationCode.ValidateError.OrganizationCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Position",
+			"item": [
+				{
+					"name": "List Position",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"position_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/list-position",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"list-position"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"position_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/list-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"list-position"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "951"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:20:15 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "wB-n6NRb5F2j27xfF_Q63B7-S29YcZstSY78M1fiK7O3wRpyWS3Xqg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 39,\n    \"data\": [\n        {\n            \"position_code\": \"0000\",\n            \"title_th\": \"พนักงาน\",\n            \"title_en\": \"Default\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"position_code\": \"00005\",\n            \"title_th\": \"ทดสอบทดสอบจาก delphi5\",\n            \"title_en\": null,\n            \"created_at\": \"2023-06-16T07:21:21.82575Z\",\n            \"updated_at\": \"2023-06-16T07:21:21.82575Z\"\n        },\n        {\n            \"position_code\": \"0001\",\n            \"title_th\": \"เจ้าหน้าที่\",\n            \"title_en\": \"Officer\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"position_code\": \"0010\",\n            \"title_th\": \"เจ้าหน้าที่ test\",\n            \"title_en\": \"Officer test\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"position_code\": \"1010\",\n            \"title_th\": \"พนักงานทำความสะอาด\",\n            \"title_en\": \"Cleaning Staff\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Position",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/delete-position",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"delete-position"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/delete-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"delete-position"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:20:47 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "AWZbLUCAvkx5gtrShVIYT4iE-ORZBXzmW-KAj3OmAlPx0Eqj4tIK-w=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Position",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง\",\n        \"title_en\": \"Example Position\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/new-position",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"new-position"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง\",\n        \"title_en\": \"Example Position\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-position"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "213"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:23:49 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "zOm7xpmjy--J1y5Ovnt10byOmsrvE_4KDpQeqN8lVg8LoF32EPg0fQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง\",\n        \"title_en\": \"Example Position\",\n        \"created_at\": \"2023-07-11T13:23:49.785858Z\",\n        \"updated_at\": \"2023-07-11T13:23:49.785858Z\"\n    }\n}"
+						},
+						{
+							"name": "409 Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง\",\n        \"title_en\": \"Example Position\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-position"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "214"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:25:09 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "lS8lXXl3I7KUfS04zbuuNc4Quy-C97-MslmrN51fpERLi9jSc60Frw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 409,\n    \"message\": \"duplicate position code\",\n    \"time\": \"2023-07-11T20:25:09.797283617+07:00\",\n    \"log_id\": \"ZCCxLYFG\",\n    \"error_code\": \"module.integration-api.usecase.NewPosition.Conflict.PositionCode\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Position",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Position (edited)\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/update-position",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"update-position"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Position (edited)\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-position"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "240"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:25:36 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "uYmaDohGgKN_cTsL1z2ogK8LfVka_FNTorVUZgpzG-sfZr_UCaAS0g=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Position (edited)\",\n        \"created_at\": \"2023-07-11T13:23:49.785858Z\",\n        \"updated_at\": \"2023-07-11T13:25:36.047922Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"position\": {\n        \"position_code\": \"unknown code\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Position (edited)\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-position"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "289"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:26:25 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "JWj9g4GgW8JfXpxD5ZTfA67penNdTj9hh59nRe3tGKyNRUg-zK2aiw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'PositionCode' validation for 'positionobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T20:26:25.414481974+07:00\",\n    \"log_id\": \"ejydaEAr\",\n    \"error_code\": \"module.integration-api.ctrl.validatorPosition.ValidateError.PositionCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Position",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/get-position",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"get-position"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"position\": {\n        \"position_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-position"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "240"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:29:36 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "UnxYCeXR66flpUIOY3aHN1BcowuvEqsW74EItbZZzAn5ytLTXuEecg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"position\": {\n        \"position_code\": \"5000\",\n        \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Position (edited)\",\n        \"created_at\": \"2023-07-11T13:23:49.785858Z\",\n        \"updated_at\": \"2023-07-11T13:26:01.264937Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"position\": {\n        \"position_code\": \"unknown code\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-position",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-position"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:30:45 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "3a4ix8yGOdF2FnuCa-NwJM7e85n5bdpCanpk_u4sRO4FScp7WL4Nrw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'PositionCode' validation for 'positionobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T20:30:45.177617989+07:00\",\n    \"log_id\": \"KZsnhTJU\",\n    \"error_code\": \"module.integration-api.ctrl.validatorPositionCode.ValidateError.PositionCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Shift",
+			"item": [
+				{
+					"name": "List Shift",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"shift_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/list-shift",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"list-shift"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"shift_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/list-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"list-shift"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:35:02 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "8cLImpQ5V6PbBgFnKXpkeKdCRcjNSVNBFmocGVgl4losDFSeQz87Fw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 7,\n    \"data\": [\n        {\n            \"shift_code\": \"01\",\n            \"title_th\": \"กะกลางวัน\",\n            \"title_en\": \"Day Shift\",\n            \"time_in\": \"08:00\",\n            \"time_out\": \"17:00\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"shift_code\": \"02\",\n            \"title_th\": \"กะบ่าย\",\n            \"title_en\": \"Day Shift\",\n            \"time_in\": \"14:00\",\n            \"time_out\": \"23:00\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"shift_code\": \"03\",\n            \"title_th\": \"กะ 08:00 - 16:30\",\n            \"title_en\": \"Shift 08:00 - 16:30\",\n            \"time_in\": \"08:00\",\n            \"time_out\": \"16:30\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"shift_code\": \"04\",\n            \"title_th\": \"กะ 10:00 - 20:00\",\n            \"title_en\": \"Shift 10:00 - 20:00\",\n            \"time_in\": \"10:00\",\n            \"time_out\": \"20:00\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"shift_code\": \"05\",\n            \"title_th\": \"กะ 07:00 - 15:30\",\n            \"title_en\": \"Shift 07:00 - 15:30\",\n            \"time_in\": \"07:00\",\n            \"time_out\": \"15:30\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Shift",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/delete-shift",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"delete-shift"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/delete-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"delete-shift"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:38:36 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "igt_9IkRPxxSK1F4qkSKtKxk5cxKv7sOyNZsnxq34JpbiajDcG4CRA=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Shift",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง\",\n        \"title_en\": \"Example Shift\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/new-shift",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"new-shift"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง\",\n        \"title_en\": \"Example Shift\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-shift"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:39:30 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "bs5vRLhkBu6WSnq9gHHOQ8M8ZWBCsAkAXJTbRSAZbCigt7uOq1_tvg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง\",\n        \"title_en\": \"Example Shift\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\",\n        \"created_at\": \"2023-07-11T13:39:30.907598Z\",\n        \"updated_at\": \"2023-07-11T13:39:30.907598Z\"\n    }\n}"
+						},
+						{
+							"name": "409 Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง\",\n        \"title_en\": \"Example Shift\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-shift"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:39:48 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "RY7vurE_WsG2AX2WH6ub_TkxrE4jta68pMf_2FVHPKIVwlTrZJE-JA=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 409,\n    \"message\": \"duplicate shift code\",\n    \"time\": \"2023-07-11T20:39:48.400961479+07:00\",\n    \"log_id\": \"76Yssbn2\",\n    \"error_code\": \"module.integration-api.usecase.NewShift.Conflict.ShiftCode\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Shift",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Shift (edited)\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/update-shift",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"update-shift"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Shift (edited)\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-shift"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "277"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:40:34 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "PMUZucLHas29sG4vBXr72d1xfxwn-f-d2P0n2E_J77b3NnArFEtWbg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Shift (edited)\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\",\n        \"created_at\": \"2023-07-11T13:39:30.907598Z\",\n        \"updated_at\": \"2023-07-11T13:40:34.866088Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shift\": {\n        \"shift_code\": \"unknown code\",\n        \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Shift (edited)\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-shift"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "277"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:41:26 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "MYn1kiY9r5ejSsa41KrD0fOo_PI0eo8f5265lyJgKQG7zUbzen7iLw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'ShiftCode' validation for 'shiftobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T20:41:26.700856188+07:00\",\n    \"log_id\": \"xAeqVz3h\",\n    \"error_code\": \"module.integration-api.ctrl.validatorShift.ValidateError.ShiftCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Shift",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/get-shift",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"get-shift"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shift\": {\n        \"shift_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-shift"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "277"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:42:14 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "dlXKydWM-m0nJnM5v99pteP-806OtAyHCClrTOhJjj4QQD5mzVg0Mw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"shift\": {\n        \"shift_code\": \"5000\",\n        \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Shift (edited)\",\n        \"time_in\": \"09:00\",\n        \"time_out\": \"17:30\",\n        \"created_at\": \"2023-07-11T13:39:30.907598Z\",\n        \"updated_at\": \"2023-07-11T13:40:34.866088Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"shift\": {\n        \"shift_code\": \"unknown code\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-shift",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-shift"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "280"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:42:40 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Wd1GfktSpCSq0H5qGTqpv6kNzDzexSTMzoiu4xIdPgfugbDCGo8a1w=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'ShiftCode' validation for 'shiftobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T20:42:40.63293054+07:00\",\n    \"log_id\": \"Zi9PF8RM\",\n    \"error_code\": \"module.integration-api.ctrl.validatorShiftCode.ValidateError.ShiftCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Employee Type",
+			"item": [
+				{
+					"name": "List Employee Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"employee_type_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/list-employee-type",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"list-employee-type"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"employee_type_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-03-01T00:00:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/list-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"list-employee-type"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "784"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:45:12 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "eRq09VKYWcbcMILTxZ8qynTrC8Eu3O1yO5lm3d7LbLP4QloeDVoAsA=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 4,\n    \"data\": [\n        {\n            \"employee_type_code\": \"000000\",\n            \"title_th\": \"ค่าเริ่มต้น\",\n            \"title_en\": \"Default\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"employee_type_code\": \"000001\",\n            \"title_th\": \"พนักงานรายเดือน\",\n            \"title_en\": \"\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"employee_type_code\": \"000002\",\n            \"title_th\": \"พนักงานรายวัน\",\n            \"title_en\": \"\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-23T05:09:30.826407Z\"\n        },\n        {\n            \"employee_type_code\": \"000003\",\n            \"title_th\": \"พนักงานประจำ\",\n            \"title_en\": \"Full-Time Employees\",\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-06-06T08:08:04.671506Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Employee Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/delete-employee-type",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"delete-employee-type"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/delete-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"delete-employee-type"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:45:33 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "QmCfnBklevWqUOfTFTHVnvj-741eMyXkfGe4ZbdRuQQeN8cteJKhdw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Employee Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง\",\n        \"title_en\": \"Example Employee Type\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/new-employee-type",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"new-employee-type"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง\",\n        \"title_en\": \"Example Employee Type\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-employee-type"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "246"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:45:52 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Q7C99wjkjqh940Qv_GJhuYoJO5lF3KY9FWrrBoO_wB7DmX_xAg2faQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง\",\n        \"title_en\": \"Example Employee Type\",\n        \"created_at\": \"2023-07-11T13:45:52.234036Z\",\n        \"updated_at\": \"2023-07-11T13:45:52.234036Z\"\n    }\n}"
+						},
+						{
+							"name": "409 Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง\",\n        \"title_en\": \"Example Employee Type\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-employee-type"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "227"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:46:07 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "MDK4eeSlaROtMyGiQnO6hd7QmaZGM-ClcVBUWuEji-pfDhamYItG4Q=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 409,\n    \"message\": \"duplicate employee type code\",\n    \"time\": \"2023-07-11T20:46:07.056533183+07:00\",\n    \"log_id\": \"KDe1QYwe\",\n    \"error_code\": \"module.integration-api.usecase.NewEmployeeType.Conflict.EmployeeTypeCode\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Employee Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Employee Type (edited)\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/update-employee-type",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"update-employee-type"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Employee Type (edited)\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-employee-type"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:46:41 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "auVu-0IKB66DYS54zEvZKUxo8nWIrHUfndol7Bkyd51R16k71oz57A=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Employee Type (edited)\",\n        \"created_at\": \"2023-07-11T13:45:52.234036Z\",\n        \"updated_at\": \"2023-07-11T13:46:41.553042Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"unknown code\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Employee Type (edited)\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-employee-type"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "305"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:47:13 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "2zhH8fqLYNTCsYy9RfBUGj19V06OfFhzMhpleE2aBHJoVojJF1ub1Q=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'EmployeeTypeCode' validation for 'employeetypeobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T20:47:13.082145721+07:00\",\n    \"log_id\": \"rFLeDh2M\",\n    \"error_code\": \"module.integration-api.ctrl.validatorEmployeeType.ValidateError.EmployeeTypeCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Employee Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/get-employee-type",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"get-employee-type"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-employee-type"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:48:35 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Grer8H-otK5B29OlDcwo3g6m-m0Oj3WriiIIfF7V8SC6iqYZ5-W2fA=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"5000\",\n        \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n        \"title_en\": \"Example Employee Type (edited)\",\n        \"created_at\": \"2023-07-11T13:45:52.234036Z\",\n        \"updated_at\": \"2023-07-11T13:46:41.553042Z\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee_type\": {\n        \"employee_type_code\": \"unknown code\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-employee-type",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-employee-type"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "309"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:49:01 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "WgqLZEApduA8l98pq3WDvBk1hhkT4uqIYSIRr3xaOkEhczrrfOaxYw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'EmployeeTypeCode' validation for 'employeetypeobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T20:49:01.107103214+07:00\",\n    \"log_id\": \"ExjYwiAs\",\n    \"error_code\": \"module.integration-api.ctrl.validatorEmployeeTypeCode.ValidateError.EmployeeTypeCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "List Employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"employee_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-05-24T00:00:00Z\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/list-employee",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"list-employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"conditions\": {\n        \"search\": \"\",\n        \"sort\": \"employee_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0,\n        \"created_at_gte\": \"2023-03-01T00:00:00Z\",\n        \"updated_at_gte\": \"2023-05-24T00:00:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/list-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"list-employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:51:31 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "7oh42bHsB1DUCogO5t1T6TPE-Dq3o5eCi3kyd_x7TuRyCMYAzpwKMw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 179,\n    \"data\": [\n        {\n            \"employee_code\": \"0101010101\",\n            \"firstname_th\": \"aa\",\n            \"lastname_th\": \"aa\",\n            \"firstname_en\": null,\n            \"lastname_en\": null,\n            \"identification_number\": null,\n            \"identification_type\": null,\n            \"organization\": {\n                \"organization_code\": \"2896\",\n                \"title_th\": \"ทดสอบ 2896\",\n                \"title_en\": \"Test 2896\",\n                \"root_organization\": {\n                    \"organization_code\": \"2886\"\n                }\n            },\n            \"position\": {\n                \"position_code\": \"0010\",\n                \"title_th\": \"เจ้าหน้าที่ test\",\n                \"title_en\": \"Officer test\"\n            },\n            \"employee_type\": {\n                \"employee_type_code\": \"000003\",\n                \"title_th\": \"พนักงานประจำ\",\n                \"title_en\": \"Full-Time Employees\"\n            },\n            \"shift\": {\n                \"shift_code\": \"03\",\n                \"title_th\": \"กะ 08:00 - 16:30\",\n                \"title_en\": \"Shift 08:00 - 16:30\"\n            },\n            \"optional_information\": null,\n            \"created_at\": \"2023-06-28T04:29:28.101979Z\",\n            \"updated_at\": \"2023-06-28T04:29:28.101979Z\"\n        },\n        {\n            \"employee_code\": \"1111111111\",\n            \"firstname_th\": \"Deer1\",\n            \"lastname_th\": \"Deer\",\n            \"firstname_en\": \"D\",\n            \"lastname_en\": null,\n            \"identification_number\": null,\n            \"identification_type\": null,\n            \"organization\": {\n                \"organization_code\": \"900000\",\n                \"title_th\": \"บริหาร\",\n                \"title_en\": \"Executive\",\n                \"root_organization\": null\n            },\n            \"position\": {\n                \"position_code\": \"2020\",\n                \"title_th\": \"เจ้าหน้าที่\",\n                \"title_en\": \"\"\n            },\n            \"employee_type\": {\n                \"employee_type_code\": \"000003\",\n                \"title_th\": \"พนักงานประจำ\",\n                \"title_en\": \"Full-Time Employees\"\n            },\n            \"shift\": {\n                \"shift_code\": \"06\",\n                \"title_th\": \"กะ 06:00 - 14:30\",\n                \"title_en\": \"Shift 06:00 - 14:30\"\n            },\n            \"optional_information\": null,\n            \"created_at\": \"2023-05-23T05:09:30.826407Z\",\n            \"updated_at\": \"2023-05-29T06:37:54.415715Z\"\n        },\n        {\n            \"employee_code\": \"3100400171167\",\n            \"firstname_th\": \"วสวัสส์\",\n            \"lastname_th\": \"ทดสอบ222\",\n            \"firstname_en\": \"วสวัสส์\",\n            \"lastname_en\": \"ทดสอบ222\",\n            \"identification_number\": \"3100400171167\",\n            \"identification_type\": {\n                \"identification_type\": \"thai\",\n                \"title_th\": \"หมายเลขบัตรประจำตัวประชาชนไทย\",\n                \"title_en\": \"Thai identification card number\"\n            },\n            \"organization\": {\n                \"organization_code\": \"1001\",\n                \"title_th\": \"ส่วนกลาง\",\n                \"title_en\": \"Center\",\n                \"root_organization\": {\n                    \"organization_code\": \"900000\"\n                }\n            },\n            \"position\": {\n                \"position_code\": \"0001\",\n                \"title_th\": \"เจ้าหน้าที่\",\n                \"title_en\": \"Officer\"\n            },\n            \"employee_type\": {\n                \"employee_type_code\": \"000001\",\n                \"title_th\": \"พนักงานรายเดือน\",\n                \"title_en\": \"\"\n            },\n            \"shift\": {\n                \"shift_code\": \"01\",\n                \"title_th\": \"กะกลางวัน\",\n                \"title_en\": \"Day Shift\"\n            },\n            \"optional_information\": {\n                \"bool_type\": \"โอ\"\n            },\n            \"created_at\": \"2023-05-26T10:14:14.798846Z\",\n            \"updated_at\": \"2023-06-12T09:39:10.321477Z\"\n        },\n        {\n            \"employee_code\": \"3100400171168\",\n            \"firstname_th\": \"วสวัสส์อีกรอบใช้ param\",\n            \"lastname_th\": \"ทดสอบอีกรอบ\",\n            \"firstname_en\": \"วสวัสส์อีกรอบใช้ param\",\n            \"lastname_en\": \"ทดสอบอีกรอบ\",\n            \"identification_number\": \"3100400171168\",\n            \"identification_type\": {\n                \"identification_type\": \"thai\",\n                \"title_th\": \"หมายเลขบัตรประจำตัวประชาชนไทย\",\n                \"title_en\": \"Thai identification card number\"\n            },\n            \"organization\": {\n                \"organization_code\": \"1002\",\n                \"title_th\": \"ส่วนกลาง 1001\",\n                \"title_en\": \"Center 1002\",\n                \"root_organization\": {\n                    \"organization_code\": \"1001\"\n                }\n            },\n            \"position\": {\n                \"position_code\": \"0000\",\n                \"title_th\": \"พนักงาน\",\n                \"title_en\": \"Default\"\n            },\n            \"employee_type\": {\n                \"employee_type_code\": \"000001\",\n                \"title_th\": \"พนักงานรายเดือน\",\n                \"title_en\": \"\"\n            },\n            \"shift\": {\n                \"shift_code\": \"01\",\n                \"title_th\": \"กะกลางวัน\",\n                \"title_en\": \"Day Shift\"\n            },\n            \"optional_information\": {\n                \"blood_type\": \"โอ\"\n            },\n            \"created_at\": \"2023-05-26T10:14:21.388011Z\",\n            \"updated_at\": \"2023-06-15T03:16:35.908584Z\"\n        },\n        {\n            \"employee_code\": \"3100400171169\",\n            \"firstname_th\": \"ทด2\",\n            \"lastname_th\": \"ทด2\",\n            \"firstname_en\": \"ทด2\",\n            \"lastname_en\": \"ทด2\",\n            \"identification_number\": \"3100400171169\",\n            \"identification_type\": {\n                \"identification_type\": \"thai\",\n                \"title_th\": \"หมายเลขบัตรประจำตัวประชาชนไทย\",\n                \"title_en\": \"Thai identification card number\"\n            },\n            \"organization\": {\n                \"organization_code\": \"1002\",\n                \"title_th\": \"ส่วนกลาง 1001\",\n                \"title_en\": \"Center 1002\",\n                \"root_organization\": {\n                    \"organization_code\": \"1001\"\n                }\n            },\n            \"position\": {\n                \"position_code\": \"0000\",\n                \"title_th\": \"พนักงาน\",\n                \"title_en\": \"Default\"\n            },\n            \"employee_type\": {\n                \"employee_type_code\": \"000001\",\n                \"title_th\": \"พนักงานรายเดือน\",\n                \"title_en\": \"\"\n            },\n            \"shift\": {\n                \"shift_code\": \"01\",\n                \"title_th\": \"กะกลางวัน\",\n                \"title_en\": \"Day Shift\"\n            },\n            \"optional_information\": {\n                \"blood_type\": \"เอ\"\n            },\n            \"created_at\": \"2023-05-26T10:14:27.609942Z\",\n            \"updated_at\": \"2023-06-15T03:41:40.912281Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/delete-employee",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"delete-employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/delete-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"delete-employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:51:51 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "r0qJa-C_ptnlZlzgyIHQPc2QRLzqLsxIDoNAVvYtyhwLeGcZ5LBlnQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง\",\n        \"lastname_th\": \"นามสกุล\",\n        \"firstname_en\": \"Firstname\",\n        \"lastname_en\": \"Lastname\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/new-employee",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"new-employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง\",\n        \"lastname_th\": \"นามสกุล\",\n        \"firstname_en\": \"Firstname\",\n        \"lastname_en\": \"Lastname\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:55:12 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "IaqsKKhscA4vdAUnbtd3zsuZKFzDF_-6S0EfcdbIPiUapK0IRuUatA=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง\",\n        \"lastname_th\": \"นามสกุล\",\n        \"firstname_en\": \"Firstname\",\n        \"lastname_en\": \"Lastname\",\n        \"identification_number\": \"5000555555555555\",\n        \"identification_type\": {\n            \"identification_type\": \"thai\",\n            \"title_th\": \"หมายเลขบัตรประจำตัวประชาชนไทย\",\n            \"title_en\": \"Thai identification card number\"\n        },\n        \"organization\": {\n            \"organization_code\": \"5000\",\n            \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Organization (edited)\",\n            \"root_organization\": {\n                \"organization_code\": \"999999\"\n            }\n        },\n        \"position\": {\n            \"position_code\": \"5000\",\n            \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Position (edited)\"\n        },\n        \"employee_type\": {\n            \"employee_type_code\": \"5000\",\n            \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Employee Type (edited)\"\n        },\n        \"shift\": {\n            \"shift_code\": \"5000\",\n            \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Shift (edited)\"\n        },\n        \"optional_information\": {\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456,\n            \"int_type\": 1,\n            \"string_type\": \"ABC\"\n        },\n        \"created_at\": \"2023-07-11T13:55:12.296348Z\",\n        \"updated_at\": \"2023-07-11T13:55:12.296348Z\"\n    }\n}"
+						},
+						{
+							"name": "409 Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง\",\n        \"lastname_th\": \"นามสกุล\",\n        \"firstname_en\": \"Firstname\",\n        \"lastname_en\": \"Lastname\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-employee"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "214"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:55:32 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "uEi_Fq-BSoPlfeQV2tIO5i7bMXDQMW87ZzHyNNLeMojQNeCUqJqBHw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 409,\n    \"message\": \"duplicate employee code\",\n    \"time\": \"2023-07-11T20:55:32.327717164+07:00\",\n    \"log_id\": \"CJZGtph7\",\n    \"error_code\": \"module.integration-api.usecase.NewEmployee.Conflict.EmployeeCode\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไข)\",\n        \"lastname_th\": \"นามสกุล (แก้ไข)\",\n        \"firstname_en\": \"Firstname (edited)\",\n        \"lastname_en\": \"Lastname (edited)\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/update-employee",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"update-employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไข)\",\n        \"lastname_th\": \"นามสกุล (แก้ไข)\",\n        \"firstname_en\": \"Firstname (edited)\",\n        \"lastname_en\": \"Lastname (edited)\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:56:16 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "GHDfnyRG_0dDTDB5UhxiY0vvF6ZsA_fHA2o91PkfsMGoa-AodzTkFg=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไข)\",\n        \"lastname_th\": \"นามสกุล (แก้ไข)\",\n        \"firstname_en\": \"Firstname (edited)\",\n        \"lastname_en\": \"Lastname (edited)\",\n        \"identification_number\": \"5000555555555555\",\n        \"identification_type\": {\n            \"identification_type\": \"thai\",\n            \"title_th\": \"หมายเลขบัตรประจำตัวประชาชนไทย\",\n            \"title_en\": \"Thai identification card number\"\n        },\n        \"organization\": {\n            \"organization_code\": \"5000\",\n            \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Organization (edited)\",\n            \"root_organization\": {\n                \"organization_code\": \"999999\"\n            }\n        },\n        \"position\": {\n            \"position_code\": \"5000\",\n            \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Position (edited)\"\n        },\n        \"employee_type\": {\n            \"employee_type_code\": \"5000\",\n            \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Employee Type (edited)\"\n        },\n        \"shift\": {\n            \"shift_code\": \"5000\",\n            \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Shift (edited)\"\n        },\n        \"optional_information\": {\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456,\n            \"int_type\": 1,\n            \"string_type\": \"ABC\"\n        },\n        \"created_at\": \"2023-07-11T13:55:12.296348Z\",\n        \"updated_at\": \"2023-07-11T13:56:16.236399Z\"\n    }\n}"
+						},
+						{
+							"name": "404 Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"unknown code\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไข)\",\n        \"lastname_th\": \"นามสกุล (แก้ไข)\",\n        \"firstname_en\": \"Firstname (edited)\",\n        \"lastname_en\": \"Lastname (edited)\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-employee"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "209"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:57:45 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "De4ibYYRFlpGdOcVcNAsBZLse8vBS0OSt9PY8L-ZlFP9oWpyj7_wIQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 404,\n    \"message\": \"employee code not found\",\n    \"time\": \"2023-07-11T20:57:45.531907202+07:00\",\n    \"log_id\": \"P5YC9dup\",\n    \"error_code\": \"module.integration-api.dao.VerifyEmployeeCode.NotFoundError\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update EmployeeFields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไขฟิลด์)\",\n        \"lastname_th\": \"นามสกุล (แก้ไขฟิลด์)\",\n        \"firstname_en\": \"Firstname (field edited)\",\n        \"lastname_en\": \"Lastname (field edited)\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/update-employee-fields",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"update-employee-fields"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไขฟิลด์)\",\n        \"lastname_th\": \"นามสกุล (แก้ไขฟิลด์)\",\n        \"firstname_en\": \"Firstname (field edited)\",\n        \"lastname_en\": \"Lastname (field edited)\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-employee-fields",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-employee-fields"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:58:26 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "dfSQDuo5nhST6YwmVd6FqyAThj7wcH2o_8IvcYdZRyanpbbq2CXYfw=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไขฟิลด์)\",\n        \"lastname_th\": \"นามสกุล (แก้ไขฟิลด์)\",\n        \"firstname_en\": \"Firstname (field edited)\",\n        \"lastname_en\": \"Lastname (field edited)\",\n        \"identification_number\": \"5000555555555555\",\n        \"identification_type\": {\n            \"identification_type\": \"thai\",\n            \"title_th\": \"หมายเลขบัตรประจำตัวประชาชนไทย\",\n            \"title_en\": \"Thai identification card number\"\n        },\n        \"organization\": {\n            \"organization_code\": \"5000\",\n            \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Organization (edited)\",\n            \"root_organization\": {\n                \"organization_code\": \"999999\"\n            }\n        },\n        \"position\": {\n            \"position_code\": \"5000\",\n            \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Position (edited)\"\n        },\n        \"employee_type\": {\n            \"employee_type_code\": \"5000\",\n            \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Employee Type (edited)\"\n        },\n        \"shift\": {\n            \"shift_code\": \"5000\",\n            \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Shift (edited)\"\n        },\n        \"optional_information\": {\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456,\n            \"int_type\": 1,\n            \"string_type\": \"ABC\"\n        },\n        \"created_at\": \"2023-07-11T13:55:12.296348Z\",\n        \"updated_at\": \"2023-07-11T13:58:25.984616Z\"\n    }\n}"
+						},
+						{
+							"name": "404 Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"unknown code\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไขฟิลด์)\",\n        \"lastname_th\": \"นามสกุล (แก้ไขฟิลด์)\",\n        \"firstname_en\": \"Firstname (field edited)\",\n        \"lastname_en\": \"Lastname (field edited)\",\n        \"identification_type\": \"thai\",\n        \"identification_number\": \"5000555555555555\",\n        \"organization_code\": \"5000\",\n        \"position_code\": \"5000\",\n        \"employee_type_code\": \"5000\",\n        \"shift_code\": \"5000\",\n        \"role_code\": null,\n        \"optional_information\": {\n            \"string_type\": \"ABC\",\n            \"int_type\": 1,\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456\n        }\n    },\n    \"options\": {\n        \"unique_field\": [\n            \"identification_number\"\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-employee-fields",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-employee-fields"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 13:59:49 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "F4-b1unjLKohfYXzAObsYpLguvZdCr1z8TZOYyQ2ywc_Qc2-5sViQg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 404,\n    \"message\": \"employee code not found\",\n    \"time\": \"2023-07-11T20:59:49.37875964+07:00\",\n    \"log_id\": \"yhGaZM3w\",\n    \"error_code\": \"module.integration-api.dao.VerifyEmployeeCode.NotFoundError\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/get-employee",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"get-employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:00:39 GMT"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "Tr9De9OFQ9p04XSFkSwK9t06tqJM34xRYLOOiMcXSb6fSoee6dngww=="
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\",\n        \"firstname_th\": \"ชื่อจริง (แก้ไขฟิลด์)\",\n        \"lastname_th\": \"นามสกุล (แก้ไขฟิลด์)\",\n        \"firstname_en\": \"Firstname (field edited)\",\n        \"lastname_en\": \"Lastname (field edited)\",\n        \"identification_number\": \"5000555555555555\",\n        \"identification_type\": {\n            \"identification_type\": \"thai\",\n            \"title_th\": \"หมายเลขบัตรประจำตัวประชาชนไทย\",\n            \"title_en\": \"Thai identification card number\"\n        },\n        \"organization\": {\n            \"organization_code\": \"5000\",\n            \"title_th\": \"หน่วยงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Organization (edited)\",\n            \"root_organization\": {\n                \"organization_code\": \"999999\"\n            }\n        },\n        \"position\": {\n            \"position_code\": \"5000\",\n            \"title_th\": \"ตำแหน่งตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Position (edited)\"\n        },\n        \"employee_type\": {\n            \"employee_type_code\": \"5000\",\n            \"title_th\": \"ประเภทพนักงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Employee Type (edited)\"\n        },\n        \"shift\": {\n            \"shift_code\": \"5000\",\n            \"title_th\": \"กะการทำงานตัวอย่าง (แก้ไข)\",\n            \"title_en\": \"Example Shift (edited)\"\n        },\n        \"optional_information\": {\n            \"bool_type\": true,\n            \"example_field\": \"something you want to store for this employee\",\n            \"example_number\": 12.3456,\n            \"int_type\": 1,\n            \"string_type\": \"ABC\"\n        },\n        \"created_at\": \"2023-07-11T13:55:12.296348Z\",\n        \"updated_at\": \"2023-07-11T13:58:25.984616Z\"\n    }\n}"
+						},
+						{
+							"name": "404 Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"unknown code\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-employee",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-employee"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "209"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:01:07 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "_aQhduzDEuD7WukQNQpjyFaYQj2g1r_emXYbKyIv_nlK3JXx5nD-cA=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 404,\n    \"message\": \"employee code not found\",\n    \"time\": \"2023-07-11T21:01:07.870212659+07:00\",\n    \"log_id\": \"WBMqucae\",\n    \"error_code\": \"module.integration-api.dao.VerifyEmployeeCode.NotFoundError\",\n    \"error_args\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Off-Site Location",
+			"item": [
+				{
+					"name": "List Off-Site Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conditions\": {\n        \"searchx\": \"\",\n        \"sort\": \"offsite_location_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/list-offsite-location",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"list-offsite-location"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"conditions\": {\n        \"searchx\": \"\",\n        \"sort\": \"offsite_location_code\",\n        \"order_by\": \"asc\",\n        \"limit\": 5,\n        \"offset\": 0\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/list-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"list-offsite-location"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "800"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:02:49 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "FULBghfoC96sD1fQf_-dUUyLYEaKyzmMsiLVnMFUeb71WFoPz-8sOw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 11,\n    \"data\": [\n        {\n            \"offsite_location_code\": \"1000\",\n            \"title_th\": \"งามวงศ์วาน\",\n            \"title_en\": null,\n            \"latitude\": \"13.85362450\",\n            \"longitude\": \"100.54989040\",\n            \"timezone\": \"+07:00\"\n        },\n        {\n            \"offsite_location_code\": \"2000\",\n            \"title_th\": \"ไอซ์แลนด์\",\n            \"title_en\": \"Iceland\",\n            \"latitude\": \"64.67836250\",\n            \"longitude\": \"-19.71752740\",\n            \"timezone\": \"+00:00\"\n        },\n        {\n            \"offsite_location_code\": null,\n            \"title_th\": \"บางจาก\",\n            \"title_en\": null,\n            \"latitude\": \"13.59886660\",\n            \"longitude\": \"100.79230310\",\n            \"timezone\": \"+08:00\"\n        },\n        {\n            \"offsite_location_code\": null,\n            \"title_th\": \"โตโยต้า\",\n            \"title_en\": null,\n            \"latitude\": \"13.87991520\",\n            \"longitude\": \"100.51480360\",\n            \"timezone\": \"+00:00\"\n        },\n        {\n            \"offsite_location_code\": null,\n            \"title_th\": \"ปตท\",\n            \"title_en\": null,\n            \"latitude\": \"15.46742800\",\n            \"longitude\": \"99.53830800\",\n            \"timezone\": \"-01:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Off-Site Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/delete-offsite-location",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"delete-offsite-location"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/delete-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"delete-offsite-location"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:03:09 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "6Tnu0Ss-tIeXHnBpjiYzfRdpFCzLusHkb5hGA-gz4YDAaXTLJmv-vw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Off-Site Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ\",\n        \"title_en\": \"Victory Monument\",\n        \"latitude\": \"13.7649161\",\n        \"longitude\": \"100.5357104\",\n        \"timezone\": \"+07:00\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/new-offsite-location",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"new-offsite-location"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ\",\n        \"title_en\": \"Victory Monument\",\n        \"latitude\": \"13.7649161\",\n        \"longitude\": \"100.5357104\",\n        \"timezone\": \"+07:00\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-offsite-location"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "222"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:03:32 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "dlbvQ9mfFEtrqDaSFsSEMe2dQvocQL8mQrcz9ERhU9y8ULVrxf-6ww=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ\",\n        \"title_en\": \"Victory Monument\",\n        \"latitude\": \"13.76491610\",\n        \"longitude\": \"100.53571040\",\n        \"timezone\": \"+07:00\"\n    }\n}"
+						},
+						{
+							"name": "409 Conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ\",\n        \"title_en\": \"Victory Monument\",\n        \"latitude\": \"13.7649161\",\n        \"longitude\": \"100.5357104\",\n        \"timezone\": \"+07:00\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/new-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"new-offsite-location"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "236"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:03:59 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "FwG_dfp9g4I87GKX3G4tbn4mCdz58Hf3UjJwIt5TK2sYCmOufBpIRQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 409,\n    \"message\": \"duplicate offsite location code\",\n    \"time\": \"2023-07-11T21:03:59.745510294+07:00\",\n    \"log_id\": \"fzFFrCvz\",\n    \"error_code\": \"module.integration-api.usecase.NewOffsiteLocation.Conflict.OffsiteLocationCode\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Off-Site Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ (แก้ไข)\",\n        \"title_en\": \"Victory Monument (edited)\",\n        \"latitude\": \"13.7649161\",\n        \"longitude\": \"100.5357104\",\n        \"timezone\": \"+07:00\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/update-offsite-location",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"update-offsite-location"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ (แก้ไข)\",\n        \"title_en\": \"Victory Monument (edited)\",\n        \"latitude\": \"13.7649161\",\n        \"longitude\": \"100.5357104\",\n        \"timezone\": \"+07:00\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-offsite-location"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:04:27 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "hQmP8mMNaYgXjrK1NjNHpsPaZ4XjVwxxk33tj3qNSuypO9HO_oRpmQ=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ (แก้ไข)\",\n        \"title_en\": \"Victory Monument (edited)\",\n        \"latitude\": \"13.76491610\",\n        \"longitude\": \"100.53571040\",\n        \"timezone\": \"+07:00\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"unknown code\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ (แก้ไข)\",\n        \"title_en\": \"Victory Monument (edited)\",\n        \"latitude\": \"13.7649161\",\n        \"longitude\": \"100.5357104\",\n        \"timezone\": \"+07:00\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/update-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"update-offsite-location"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "317"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:04:57 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "LF6SQvty3sT42onIWfsZQyCt1NVLt2bR4NYGSH0VmOVrFwkwZmcqdg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'OffsiteLocationCode' validation for 'offsitelocationobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T21:04:57.334119696+07:00\",\n    \"log_id\": \"Ct9JCefe\",\n    \"error_code\": \"module.integration-api.ctrl.validatorOffsiteLocation.ValidateError.OffsiteLocationCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Off-Site Location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/get-offsite-location",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"get-offsite-location"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"2001\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-offsite-location"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:05:52 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "jXXCytw0ftaIvEbN2cTWjo3SGQbBEQBS7U-3FFpdXnA_dK1tsMfaow=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"location\": {\n        \"offsite_location_code\": \"2001\",\n        \"title_th\": \"อนุสาวรีย์ชัยสมรภูมิ (แก้ไข)\",\n        \"title_en\": \"Victory Monument (edited)\",\n        \"latitude\": \"13.76491610\",\n        \"longitude\": \"100.53571040\",\n        \"timezone\": \"+07:00\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"offsite_location\": {\n        \"offsite_location_code\": \"unknown code\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/get-offsite-location",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"get-offsite-location"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:06:18 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "3bIB6los3FrHKbS6dLYMTg9YELjQrmPgH0DX4u5g8fZBvxaSbSg-Qw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'OffsiteLocationCode' validation for 'offsitelocationobject' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T21:06:18.872573907+07:00\",\n    \"log_id\": \"TZCTRbVS\",\n    \"error_code\": \"module.integration-api.ctrl.validatorOffsiteLocationCode.ValidateError.OffsiteLocationCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Employee Off-Site Grant",
+			"item": [
+				{
+					"name": "Set Employee Off-Site Grant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    },\n    \"offsite_grant\": {\n        \"offsite_location\": [\n            {\n                \"offsite_location_code\": \"1000\",\n                \"radius_meter\": 50\n            },\n            {\n                \"offsite_location_code\": \"2001\",\n                \"radius_meter\": 100\n            }\n        ],\n        \"start_time\": null,\n        \"end_time\": \"2030-12-31T23:59:00Z\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{root_endpoint}}/std/func/set-employee-offsite-grant",
+							"host": [
+								"{{root_endpoint}}"
+							],
+							"path": [
+								"std",
+								"func",
+								"set-employee-offsite-grant"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    },\n    \"offsite_grant\": {\n        \"offsite_location\": [\n            {\n                \"offsite_location_code\": \"1000\",\n                \"radius_meter\": 50\n            },\n            {\n                \"offsite_location_code\": \"2001\",\n                \"radius_meter\": 100\n            }\n        ],\n        \"start_time\": null,\n        \"end_time\": \"2030-12-31T23:59:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/set-employee-offsite-grant",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"set-employee-offsite-grant"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "236"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:06:50 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "ErKWhdon3rpPThaXOq2SKwWefxwRRrpv-CGgnDfz7C08mihV5XIhrw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    },\n    \"offsite_grant\": {\n        \"offsite_location\": [\n            {\n                \"offsite_location_code\": \"1000\",\n                \"radius_meter\": 50\n            },\n            {\n                \"offsite_location_code\": \"2001\",\n                \"radius_meter\": 100\n            }\n        ],\n        \"start_time\": null,\n        \"end_time\": \"2030-12-31T23:59:00Z\"\n    }\n}"
+						},
+						{
+							"name": "404 Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"unknown code\"\n    },\n    \"offsite_grant\": {\n        \"offsite_location\": [\n            {\n                \"offsite_location_code\": \"1000\",\n                \"radius_meter\": 50\n            },\n            {\n                \"offsite_location_code\": \"2001\",\n                \"radius_meter\": 100\n            }\n        ],\n        \"start_time\": null,\n        \"end_time\": \"2030-12-31T23:59:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/set-employee-offsite-grant",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"set-employee-offsite-grant"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "209"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:07:21 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "udblFWOcqnfR97Q04VUjbhOE0sNAxP936gTnwHdS_xAw-UPAyGGIkg=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 404,\n    \"message\": \"employee code not found\",\n    \"time\": \"2023-07-11T21:07:21.946334216+07:00\",\n    \"log_id\": \"NimrW4zw\",\n    \"error_code\": \"module.integration-api.dao.VerifyEmployeeCode.NotFoundError\",\n    \"error_args\": null\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employee\": {\n        \"employee_code\": \"50005000\"\n    },\n    \"offsite_grant\": {\n        \"offsite_location\": [\n            {\n                \"offsite_location_code\": \"unknown code\",\n                \"radius_meter\": 50\n            }\n        ],\n        \"start_time\": null,\n        \"end_time\": \"2030-12-31T23:59:00Z\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{root_endpoint}}/std/func/set-employee-offsite-grant",
+									"host": [
+										"{{root_endpoint}}"
+									],
+									"path": [
+										"std",
+										"func",
+										"set-employee-offsite-grant"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "nginx"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 14:07:55 GMT"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Error from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 b69cdfc59bad6747d764482ac620f776.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "SIN5-C1"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "KQ7n-qLJuYiXLq41gqtilEXt37Tooq2NB1rRXg-osr_Mh3uEk_3dpw=="
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Field 'OffsiteLocationCode' validation for 'offsitelocationdataofoffsitegrant' failed on the 'max' rule (max=10)\",\n    \"time\": \"2023-07-11T21:07:55.471266169+07:00\",\n    \"log_id\": \"uSyhYkY9\",\n    \"error_code\": \"module.integration-api.ctrl.validatorLocation.ValidateError.OffsiteLocationCode.max\",\n    \"error_args\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
