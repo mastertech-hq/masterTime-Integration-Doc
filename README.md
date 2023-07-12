@@ -5,4 +5,3 @@
 1. [Open APIs](/openapi/README.md)
 2. [Webhooks](/webhooks/README.md)
 3. [Integration APIs](/integration/README.md)
-
