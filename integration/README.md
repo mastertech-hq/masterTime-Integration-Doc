@@ -19,7 +19,7 @@
 - [Request Body สำหรับการแก้ไขข้อมูล](#request-body-สำหรับการแก้ไขข้อมูล)
 - [Object ของข้อมูลในระบบ masterTime](#object-ของข้อมูลในระบบ-mastertime)
     - [1. Object ของข้อมูล "พนักงาน" (Employee)](#1-object-ของข้อมูล-พนักงาน-employee)
-    - [2. Object ของข้อมูล "สถานที่สำหรับลงเวลานอกสถานที่" (Off-Site Location)](#2-object-ของข้อมูล-สถานทีสำหรับลงเวลานอกสถานที-off-site-location)
+    - [2. Object ของข้อมูล "สถานที่สำหรับลงเวลานอกสถานที่" (Off-Site Location)](#2-object-ของข้อมูล-สถานที่สำหรับลงเวลานอกสถานที่-off-site-location)
     - [3. Object ของข้อมูล "หน่วยงาน" (Organization)](#3-object-ของข้อมูล-หน่วยงาน-organization)
     - [4. Object ของข้อมูล "ตำแหน่งงาน" (Position)](#4-object-ของข้อมูล-ตำแหน่งงาน-position)
     - [5. Object ของข้อมูล "กะเวลาการทำงาน" (Shift)](#5-object-ของข้อมูล-กะเวลาการทำงาน-shift)
