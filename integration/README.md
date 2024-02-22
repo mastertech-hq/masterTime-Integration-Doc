@@ -180,6 +180,14 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
     - การแก้ไขข้อมูลประเภทพนักงาน (Update Employee Type)
     - การขอข้อมูลประเภทพนักงานรายคน (Get Employee Type)
 
+
+- **คำนำหน้าพนักงาน (Employee Prefix)**
+    - การลิสต์ข้อมูลคำนำหน้าพนักงาน (List Employee Prefix)
+    - การลบคำนำหน้าพนักงาน (Delete Employee Prefix)
+    - การเพิ่มคำนำหน้าพนักงานใหม่ (New Employee Prefix)
+    - การแก้ไขข้อมูลคำนำหน้าพนักงาน (Update Employee Prefix)
+    - การขอข้อมูลคำนำหน้าพนักงานรายคน (Get Employee Prefix)
+
 ## Request Body สำหรับการ List ข้อมูล
 
 ทุก API ที่เป็นการ List ข้อมูล จะต้องส่ง Request Body ดังนี้
@@ -306,6 +314,7 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 4. ตำแหน่งงาน (Position)
 5. กะเวลาการทำงาน (Shift)
 6. ประเภทพนักงาน (Employee Type)
+7. คำนำหน้าพนักงาน (Employee Prefix)
 
 ### 1. Object ของข้อมูล "พนักงาน" (Employee)
 
@@ -313,6 +322,7 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 {
   "employee": {
     "employee_code": "string",
+    "employee_reference_code": "string",
     "firstname_th": "string",
     "lastname_th": "string",
     "firstname_en": "string",
@@ -323,6 +333,7 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
     "position_code": "string",
     "employee_type_code": "string",
     "shift_code": "string",
+    "employee_prefix_code": "string",
     "role_code": null,
     "optional_information": {
       "string_field_1": "string",
@@ -336,7 +347,8 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
   "options": {
     "unique_field": [
       "string"
-    ]
+    ],
+    "old_emnployee_code": "string"
   }
 }
 ```
@@ -374,6 +386,7 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 | ชื่อ Field   | คำอธิบาย                                                                                                             |
 |--------------|----------------------------------------------------------------------------------------------------------------------|
 | unique_field | ระบุเงื่อนไขการตรวจสอบ field ของข้อมูลพนักงานเพิ่มเติมเพื่อป้องการข้อมูลซ้ำซ้อน (default คือ `null` ไม่มีการตรวจสอบ) |
+| old_emnployee_code | ระบุเงื่อนไขการเปลี่ยนรหัสพนักงาน กำหนดรหัสพนักงานเก่าที่ฟิลด์ options.old_emnployee_code และกำหนดรหัสพนักงานใหม่ที่ฟิลดิ์ employee.employee_code (default คือ `null` ไม่เปลี่ยนแปลงรหัสพนักงาน) |
 
 **`unique_field` ที่สามารถใช้งานได้**
 
@@ -415,11 +428,24 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
     "title_en": "string",
     "description": "string",
     "root_organization_code": "string"
+  },
+  "options": {
+    "old_organization_code": "string"
   }
 }
 ```
 
 **คำอธิบาย**
+
+- `organization`:
+    - ข้อมูลหน่วยงาน
+    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+- `options`:
+    - ควบคุมการทำงานเพิ่มเติม
+    - ข้อมูลส่วนนี้สามารถเป็น `null` ได้
+    - ค่า default คือ `null`
+
+**ข้อมูลใน `organization` object**
 
 | ชื่อ Field             | คำอธิบาย                                                  |
 |------------------------|-----------------------------------------------------------|
@@ -429,6 +455,12 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 | description            | คำอธิบายหน่วยงาน                                          |
 | root_organization_code | Code ของหน่วยงานระดับที่สูงกว่า ซึ่งหน่วยงานนี้สังกัดอยู่ |
 
+**ข้อมูลใน `options` object**
+
+| ชื่อ Field   | คำอธิบาย                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| old_organization_code | ระบุเงื่อนไขการเปลี่ยนรหัสหน่วยงาน กำหนดรหัสหน่วยงานเก่าที่ฟิลด์ options.old_organization_code และกำหนดรหัสหน่วยงานใหม่ที่ฟิลดิ์ employee.organization_code (default คือ `null` ไม่เปลี่ยนแปลงรหัสหน่วยงาน) |
+
 ### 4. Object ของข้อมูล "ตำแหน่งงาน" (Position)
 
 ```json
@@ -437,17 +469,36 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
     "position_code": "string",
     "title_th": "string",
     "title_en": "string"
+  },
+  "options": {
+    "old_position_code": "string"
   }
 }
 ```
 
 **คำอธิบาย**
 
+- `position`:
+    - ข้อมูลตำแหน่งงาน
+    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+- `options`:
+    - ควบคุมการทำงานเพิ่มเติม
+    - ข้อมูลส่วนนี้สามารถเป็น `null` ได้
+    - ค่า default คือ `null`
+
+**ข้อมูลใน `position` object**
+
 | ชื่อ Field    | คำอธิบาย                    |
 |---------------|-----------------------------|
 | position_code | Code ของตำแหน่งงาน          |
 | title_th      | ชื่อตำแหน่งงาน (ภาษาไทย)    |
 | title_en      | ชื่อตำแหน่งงาน (ภาษาอังกฤษ) |
+
+**ข้อมูลใน `options` object**
+
+| ชื่อ Field   | คำอธิบาย                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| old_position_code | ระบุเงื่อนไขการเปลี่ยนรหัสแหน่งงาน กำหนดรหัสแหน่งงานเก่าที่ฟิลด์ options.old_position_code และกำหนดรหัสแหน่งงานใหม่ที่ฟิลดิ์ employee.position_code (default คือ `null` ไม่เปลี่ยนแปลงรหัสแหน่งงาน) |
 
 ### 5. Object ของข้อมูล "กะเวลาการทำงาน" (Shift)
 
@@ -459,11 +510,24 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
     "title_en": "string",
     "time_in": "string",
     "time_out": "string"
+  },
+  "options": {
+    "old_shift_code": "string"
   }
 }
 ```
 
 **คำอธิบาย**
+
+- `shift`:
+    - ข้อมูลกะเวลาการทำงาน
+    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+- `options`:
+    - ควบคุมการทำงานเพิ่มเติม
+    - ข้อมูลส่วนนี้สามารถเป็น `null` ได้
+    - ค่า default คือ `null`
+
+**ข้อมูลใน `shift` object**
 
 | ชื่อ Field | คำอธิบาย                        |
 |------------|---------------------------------|
@@ -473,6 +537,12 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
 | time_in    | เวลาเข้างาน (HH:MM)             |
 | time_out   | เวลาเลิกงาน (HH:MM)             |
 
+**ข้อมูลใน `options` object**
+
+| ชื่อ Field   | คำอธิบาย                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| old_shift_code | ระบุเงื่อนไขการเปลี่ยนรหัสกะเวลาการทำงาน กำหนดรหัสกะเวลาการทำงานเก่าที่ฟิลด์ options.old_shift_code และกำหนดรหัสกะเวลาการทำงานใหม่ที่ฟิลดิ์ employee.shift_code (default คือ `null` ไม่เปลี่ยนแปลงรหัสกะเวลาการทำงาน) |
+
 ### 6. Object ของข้อมูล "ประเภทพนักงาน" (Employee Type)
 
 ```json
@@ -481,15 +551,72 @@ HTTP Response Status Code มาตรฐานของ masterTime มีดั
     "employee_type_code": "string",
     "title_th": "string",
     "title_en": "string"
+  },
+  "options": {
+    "old_employee_type_code": "string"
   }
 }
 ```
 
 **คำอธิบาย**
 
+- `employee_type`:
+    - ข้อมูลประเภทพนักงาน
+    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+- `options`:
+    - ควบคุมการทำงานเพิ่มเติม
+    - ข้อมูลส่วนนี้สามารถเป็น `null` ได้
+    - ค่า default คือ `null`
+
+**ข้อมูลใน `employee_type` object**
+
+| ชื่อ Field | คำอธิบาย                         |
+|------------|--------------------------------|
+| employee_type_code | Code ของประเภทพนักงาน   |
+| title_th   | ชื่อประเภทพนักงาน (ภาษาไทย)      |
+| title_en   | ชื่อประเภทพนักงาน (ภาษาอังกฤษ)    |
+
+**ข้อมูลใน `options` object**
+
+| ชื่อ Field   | คำอธิบาย                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| old_employee_type | ระบุเงื่อนไขการเปลี่ยนรหัสประเภทพนักงาน กำหนดรหัสประเภทพนักงานเก่าที่ฟิลด์ options.old_employee_type และกำหนดรหัสประเภทพนักงานใหม่ที่ฟิลดิ์ employee.employee_type (default คือ `null` ไม่เปลี่ยนแปลงรหัสประเภทพนักงาน) |
+
+### 7. Object ของข้อมูล "คำนำหน้าพนักงาน" (Employee Prefix)
+
+```json
+{
+  "employee_prefix": {
+    "employee_prefix_code": "string",
+    "title_th": "string",
+    "title_en": "string"
+  },
+  "options": {
+    "old_employee_prefix_code": "string"
+  }
+}
+```
+
+**คำอธิบาย**
+
+- `employee_prefix`:
+    - ข้อมูลคำนำหน้าพนักงาน
+    - ข้อมูลส่วนนี้จะต้องส่งมาเสมอ
+- `options`:
+    - ควบคุมการทำงานเพิ่มเติม
+    - ข้อมูลส่วนนี้สามารถเป็น `null` ได้
+    - ค่า default คือ `null`
+
+**ข้อมูลใน `employee_prefix` object**
+
 | ชื่อ Field | คำอธิบาย                       |
 |------------|--------------------------------|
-| shift_code | Code ของประเภทพนักงาน          |
-| title_th   | ชื่อประเภทพนักงาน (ภาษาไทย)    |
-| title_en   | ชื่อประเภทพนักงาน (ภาษาอังกฤษ) |
+| employee_prefix_code | Code ของคำนำหน้าพนักงาน          |
+| title_th   | ชื่อคำนำหน้าพนักงาน (ภาษาไทย)    |
+| title_en   | ชื่อคำนำหน้าพนักงาน (ภาษาอังกฤษ) |
 
+**ข้อมูลใน `options` object**
+
+| ชื่อ Field   | คำอธิบาย                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| old_employee_prefix_code | ระบุเงื่อนไขการเปลี่ยนรหัสคำนำหน้าพนักงาน กำหนดรหัสคำนำหน้าพนักงานเก่าที่ฟิลด์ options.old_employee_prefix_code และกำหนดรหัสคำนำหน้าพนักงานใหม่ที่ฟิลดิ์ employee.employee_prefix_code (default คือ `null` ไม่เปลี่ยนแปลงรหัสคำนำหน้าพนักงาน) |
