@@ -400,6 +400,9 @@ Event นี้จะส่งเมื่อเกิด Transaction ใหม�
         }
     },
     "card_serial_number": "string",
+    "sn_base_10": "string",
+    "sn_base_16": "string",
+    "sn_string": "string",
     "latitude": "string",
     "longitude": "string",
     "license_plate": "string",
